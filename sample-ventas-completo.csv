@@ -1,0 +1,221 @@
+fecha,vendedor,producto,categoria,region,monto,unidades,activo
+2026-01-05,Carlos Peña,Marcadores,Papelería,Norte,93.86,1,true
+2026-01-05,Carlos Peña,Cuaderno,Papelería,Norte,130.24,2,true
+2026-01-07,Diana Solís,Archivero,Muebles,Norte,9980.25,3,true
+2026-01-08,Marta Ríos,Marcadores,Papelería,Sur,182.00,2,true
+2026-01-11,Carlos Peña,Silla Ergonómica,Muebles,Centro,4548.63,2,false
+2026-01-11,Carlos Peña,Carpeta,Papelería,Occidente,216.40,5,true
+2026-01-13,Diana Solís,Silla Ergonómica,Muebles,Sur,7018.12,3,true
+2026-01-13,Jorge Nava,Marcadores,Papelería,Sur,93.69,1,true
+2026-01-14,Ana Torres,Escritorio,Muebles,Sur,3042.83,1,true
+2026-01-15,Jorge Nava,Escritorio,Muebles,Sur,17861.20,6,true
+2026-01-16,Diana Solís,Silla Ergonómica,Muebles,Sur,6938.23,3,false
+2026-01-17,Diana Solís,Librero,Muebles,Occidente,5545.22,2,true
+2026-01-18,Jorge Nava,Marcadores,Papelería,Sur,559.90,6,true
+2026-01-18,Diana Solís,Teclado Mecánico,Electrónica,Sur,4323.08,3,true
+2026-01-19,Ana Torres,Audífonos BT,Electrónica,Norte,5871.76,6,false
+2026-01-19,Marta Ríos,Lámpara de Escritorio,Muebles,Occidente,1520.09,2,true
+2026-01-20,Diana Solís,Teclado Mecánico,Electrónica,Centro,5582.13,4,true
+2026-01-20,Diana Solís,,Electrónica,Sur,6143.21,5,true
+2026-01-21,Diana Solís,Mouse Inalámbrico,Electrónica,Norte,3906.00,6,true
+2026-01-22,Marta Ríos,Librero,Muebles,Centro,2592.45,1,true
+2026-01-22,Diana Solís,Carpeta,Papelería,,88.46,2,true
+2026-01-22,Jorge Nava,,Muebles,Norte,15864.54,5,true
+2026-01-22,Marta Ríos,Webcam HD,Electrónica,Centro,5015.74,4,false
+2026-01-24,Carlos Peña,Webcam HD,Electrónica,Occidente,6155.93,5,true
+2026-01-25,Jorge Nava,Escritorio,Muebles,Centro,6277.51,2,true
+2026-01-26,Luis Medina,Cuaderno,Papelería,Occidente,124.15,2,true
+2026-01-26,Ana Torres,Mouse Inalámbrico,Electrónica,Centro,1307.33,2,true
+2026-01-26,Carlos Peña,Archivero,Muebles,Centro,6915.68,2,true
+2026-01-27,Ana Torres,,Papelería,Norte,63.17,1,true
+2026-01-27,Jorge Nava,Marcadores,Papelería,Centro,516.51,6,true
+2026-01-28,Luis Medina,Laptop Pro,Electrónica,Sur,110135.98,6,false
+2026-01-28,Diana Solís,Webcam HD,Electrónica,Norte,7431.42,6,true
+2026-01-28,Jorge Nava,,Muebles,Norte,8894.99,4,true
+2026-01-30,Carlos Peña,Lámpara de Escritorio,Muebles,Centro,1539.75,2,true
+2026-01-30,Luis Medina,Teclado Mecánico,Electrónica,Centro,2842.66,2,true
+2026-01-30,Luis Medina,Marcadores,Papelería,Sur,88.08,1,true
+2026-01-31,Jorge Nava,Teclado Mecánico,Electrónica,Centro,4326.47,3,true
+2026-02-01,Jorge Nava,Marcadores,Papelería,Sur,177.73,2,true
+2026-02-01,Luis Medina,Escritorio,Muebles,Occidente,3117.80,1,true
+2026-02-02,Marta Ríos,Archivero,Muebles,Norte,16956.80,5,true
+2026-02-03,Ana Torres,Teclado Mecánico,Electrónica,Norte,4382.97,3,true
+2026-02-03,Jorge Nava,Silla Ergonómica,Muebles,Sur,9600.13,4,true
+2026-02-04,Diana Solís,Cuaderno,Papelería,Sur,321.11,5,true
+2026-02-05,Jorge Nava,Lámpara de Escritorio,Muebles,Occidente,4470.08,6,true
+2026-02-05,Carlos Peña,Librero,Muebles,Occidente,10429.38,4,true
+2026-02-06,Diana Solís,Cuaderno,Papelería,Sur,195.54,3,true
+2026-02-07,Luis Medina,Marcadores,Papelería,Occidente,459.26,5,true
+2026-02-08,Ana Torres,Silla Ergonómica,Muebles,Sur,6750.88,3,true
+2026-02-08,Marta Ríos,Cuaderno,Papelería,Sur,63.90,1,true
+2026-02-10,Diana Solís,Audífonos BT,Electrónica,Occidente,4674.72,5,false
+2026-02-11,Marta Ríos,,Electrónica,Sur,995.78,1,false
+2026-02-12,Diana Solís,Silla Ergonómica,Muebles,Sur,6770.53,3,true
+2026-02-13,Luis Medina,Escritorio,Muebles,Centro,18089.37,6,true
+2026-02-14,Marta Ríos,,Muebles,Occidente,3205.63,4,true
+2026-02-16,Ana Torres,Cuaderno,Papelería,Occidente,198.44,3,true
+2026-02-17,Marta Ríos,Paquete de Hojas,Papelería,Centro,123.82,1,true
+2026-02-18,Carlos Peña,Audífonos BT,Electrónica,Sur,4081.83,4,true
+2026-02-21,Ana Torres,Audífonos BT,Electrónica,Sur,3771.00,4,true
+2026-02-22,Luis Medina,Cuaderno,Papelería,Occidente,127.12,2,true
+2026-02-22,Diana Solís,Carpeta,Papelería,Occidente,93.20,2,true
+2026-02-22,Jorge Nava,,Papelería,Sur,518.25,6,true
+2026-02-24,Ana Torres,Laptop Pro,Electrónica,Sur,74823.43,4,true
+2026-02-24,Jorge Nava,Audífonos BT,Electrónica,Sur,999.32,1,true
+2026-02-28,Luis Medina,Marcadores,Papelería,Occidente,373.85,4,true
+2026-02-28,Luis Medina,Silla Ergonómica,Muebles,Occidente,2412.15,1,true
+2026-02-28,Marta Ríos,Teclado Mecánico,Electrónica,Centro,1378.62,1,true
+2026-03-02,Jorge Nava,Paquete de Hojas,Papelería,Occidente,705.76,6,true
+2026-03-03,Ana Torres,Teclado Mecánico,Electrónica,Sur,7047.16,5,false
+2026-03-03,Ana Torres,Carpeta,Papelería,Norte,176.95,4,true
+2026-03-04,Ana Torres,Marcadores,Papelería,Occidente,515.28,6,false
+2026-03-06,Marta Ríos,Archivero,Muebles,Centro,19982.27,6,true
+2026-03-06,Ana Torres,Marcadores,Papelería,Sur,257.91,3,true
+2026-03-09,Diana Solís,Marcadores,Papelería,Occidente,525.92,6,true
+2026-03-11,Carlos Peña,Paquete de Hojas,Papelería,Centro,723.36,6,false
+2026-03-12,Diana Solís,Lámpara de Escritorio,Muebles,Centro,3708.96,5,true
+2026-03-13,Carlos Peña,Webcam HD,Electrónica,Norte,4597.82,4,true
+2026-03-13,Marta Ríos,,Papelería,Norte,65.87,1,true
+2026-03-13,Diana Solís,Laptop Pro,Electrónica,Occidente,56768.43,3,true
+2026-03-13,Luis Medina,Paquete de Hojas,Papelería,Sur,241.25,2,true
+2026-03-13,Carlos Peña,Carpeta,Papelería,Norte,218.81,5,true
+2026-03-13,Jorge Nava,Archivero,Muebles,Occidente,19543.84,6,true
+2026-03-15,Luis Medina,Archivero,Muebles,Occidente,3551.78,1,true
+2026-03-17,Carlos Peña,Archivero,Muebles,Centro,3269.22,1,true
+2026-03-17,Carlos Peña,Escritorio,Muebles,Occidente,8861.69,3,true
+2026-03-17,Marta Ríos,Webcam HD,Electrónica,Sur,4773.45,4,true
+2026-03-17,Carlos Peña,Carpeta,Papelería,Norte,234.65,5,true
+2026-03-17,Luis Medina,Paquete de Hojas,Papelería,Norte,473.91,4,true
+2026-03-19,Jorge Nava,Audífonos BT,Electrónica,Occidente,4044.80,4,true
+2026-03-19,Marta Ríos,Paquete de Hojas,Papelería,Occidente,702.46,6,true
+2026-03-21,Carlos Peña,Escritorio,Muebles,Norte,19299.09,6,true
+2026-03-22,Jorge Nava,Marcadores,Papelería,Occidente,267.36,3,true
+2026-03-22,Jorge Nava,Cuaderno,Papelería,Centro,268.98,4,true
+2026-03-22,Diana Solís,,Papelería,Occidente,543.40,6,true
+2026-03-22,Jorge Nava,Escritorio,Muebles,Occidente,9281.22,3,true
+2026-03-23,Ana Torres,Silla Ergonómica,Muebles,Sur,11083.42,5,true
+2026-03-23,Jorge Nava,Escritorio,Muebles,Occidente,9256.80,3,true
+2026-03-25,Luis Medina,Marcadores,Papelería,Centro,172.37,2,true
+2026-03-26,Diana Solís,,Electrónica,Occidente,96379.33,5,true
+2026-03-26,Jorge Nava,Lámpara de Escritorio,Muebles,Centro,2446.14,3,true
+2026-03-26,Carlos Peña,"Monitor 27""",Electrónica,Occidente,17436.85,4,true
+2026-03-27,Diana Solís,Cuaderno,Papelería,Norte,310.97,5,true
+2026-03-31,Ana Torres,Archivero,Muebles,Sur,6617.26,2,true
+2026-03-31,Ana Torres,Teclado Mecánico,Electrónica,Occidente,4242.12,3,true
+2026-04-01,Ana Torres,Mouse Inalámbrico,Electrónica,Sur,1346.82,2,true
+2026-04-02,Diana Solís,Paquete de Hojas,Papelería,Sur,116.97,1,true
+2026-04-03,Jorge Nava,,Electrónica,Sur,1946.79,2,true
+2026-04-04,Luis Medina,Escritorio,Muebles,Norte,6048.70,2,true
+2026-04-05,Marta Ríos,Cuaderno,Papelería,Centro,189.75,3,true
+2026-04-07,Jorge Nava,Carpeta,Papelería,Norte,45.73,1,true
+2026-04-07,Carlos Peña,Marcadores,Papelería,Sur,467.29,5,false
+2026-04-09,Ana Torres,Marcadores,Papelería,Occidente,261.62,3,true
+2026-04-09,Ana Torres,Librero,Muebles,Sur,13073.71,5,true
+2026-04-12,Diana Solís,Carpeta,Papelería,Centro,180.86,4,false
+2026-04-12,Marta Ríos,Librero,Muebles,Norte,10090.55,4,true
+2026-04-12,Carlos Peña,Escritorio,Muebles,Norte,6201.42,2,true
+2026-04-12,Carlos Peña,Marcadores,Papelería,Occidente,92.64,1,false
+2026-04-13,Marta Ríos,Carpeta,Papelería,Norte,268.27,6,true
+2026-04-17,Diana Solís,Teclado Mecánico,Electrónica,Norte,4237.66,3,true
+2026-04-18,Carlos Peña,Carpeta,Papelería,Sur,225.77,5,true
+2026-04-18,Marta Ríos,Carpeta,Papelería,Centro,180.96,4,true
+2026-04-18,Jorge Nava,Archivero,Muebles,,3278.55,1,true
+2026-04-19,Carlos Peña,Archivero,Muebles,Occidente,3300.32,1,true
+2026-04-19,Jorge Nava,Lámpara de Escritorio,Muebles,Norte,1533.45,2,true
+2026-04-20,Marta Ríos,Carpeta,Papelería,Sur,259.42,6,true
+2026-04-20,Jorge Nava,Cuaderno,Papelería,Norte,375.89,6,true
+2026-04-21,Carlos Peña,Laptop Pro,Electrónica,Occidente,38615.45,2,true
+2026-04-22,Carlos Peña,Carpeta,Papelería,Sur,134.13,3,false
+2026-04-23,Luis Medina,Lámpara de Escritorio,Muebles,Sur,2246.92,3,true
+2026-04-23,Luis Medina,Cuaderno,Papelería,Sur,189.50,3,false
+2026-04-23,Carlos Peña,Archivero,Muebles,Occidente,9909.88,3,true
+2026-04-24,Diana Solís,Archivero,Muebles,Norte,17782.18,5,false
+2026-04-27,Carlos Peña,Audífonos BT,Electrónica,Norte,5670.76,6,true
+2026-04-27,Carlos Peña,Lámpara de Escritorio,Muebles,Occidente,1609.44,2,true
+2026-04-28,Marta Ríos,Laptop Pro,Electrónica,Sur,17808.45,1,true
+2026-04-29,Luis Medina,Audífonos BT,Electrónica,Centro,4078.36,4,true
+2026-04-29,Marta Ríos,,Electrónica,Occidente,3650.21,3,true
+2026-05-02,Luis Medina,Lámpara de Escritorio,Muebles,Sur,792.48,1,true
+2026-05-02,Diana Solís,"Monitor 27""",Electrónica,Centro,4011.23,1,true
+2026-05-03,Carlos Peña,Marcadores,Papelería,Occidente,447.57,5,true
+2026-05-03,Diana Solís,Teclado Mecánico,Electrónica,Sur,4507.25,3,true
+2026-05-04,Jorge Nava,Paquete de Hojas,Papelería,Norte,118.83,1,true
+2026-05-05,Marta Ríos,Librero,Muebles,Sur,2584.41,1,true
+2026-05-05,Luis Medina,Silla Ergonómica,Muebles,Centro,13503.09,6,true
+2026-05-05,Ana Torres,Archivero,Muebles,Norte,3317.01,1,true
+2026-05-05,Ana Torres,Archivero,Muebles,Norte,13102.15,4,true
+2026-05-06,Diana Solís,,Muebles,Norte,3121.20,4,true
+2026-05-06,Jorge Nava,Silla Ergonómica,Muebles,Sur,6802.79,3,true
+2026-05-07,Carlos Peña,Cuaderno,Papelería,Norte,136.14,2,true
+2026-05-08,Carlos Peña,Escritorio,Muebles,Sur,12016.36,4,true
+2026-05-09,Luis Medina,"Monitor 27""",Electrónica,Sur,4114.23,1,true
+2026-05-10,Marta Ríos,Mouse Inalámbrico,Electrónica,Occidente,3764.67,6,true
+2026-05-10,Jorge Nava,,Papelería,Occidente,275.72,6,true
+2026-05-10,Jorge Nava,Audífonos BT,Electrónica,Norte,1891.24,2,true
+2026-05-10,Diana Solís,Mouse Inalámbrico,Electrónica,Occidente,1917.33,3,true
+2026-05-13,Carlos Peña,Cuaderno,Papelería,Norte,310.05,5,true
+2026-05-14,Jorge Nava,"Monitor 27""",Electrónica,Occidente,8691.71,2,true
+2026-05-17,Marta Ríos,Cuaderno,Papelería,Sur,322.92,5,true
+2026-05-17,Jorge Nava,Silla Ergonómica,Muebles,Occidente,2284.54,1,true
+2026-05-17,Diana Solís,Escritorio,Muebles,Sur,9701.17,3,true
+2026-05-19,Jorge Nava,Webcam HD,Electrónica,Occidente,5917.10,5,true
+2026-05-19,Marta Ríos,Webcam HD,Electrónica,Sur,5926.03,5,true
+2026-05-19,Carlos Peña,Paquete de Hojas,Papelería,,121.63,1,true
+2026-05-19,Luis Medina,Lámpara de Escritorio,Muebles,Occidente,3838.51,5,true
+2026-05-20,Ana Torres,Archivero,Muebles,Norte,21184.97,6,true
+2026-05-20,Marta Ríos,Silla Ergonómica,Muebles,Sur,6640.52,3,true
+2026-05-22,Marta Ríos,Audífonos BT,Electrónica,Sur,3051.97,3,true
+2026-05-23,Diana Solís,Archivero,Muebles,Centro,6634.74,2,true
+2026-05-23,Jorge Nava,Archivero,Muebles,Sur,13810.69,4,true
+2026-05-24,Diana Solís,Marcadores,Papelería,Norte,557.12,6,true
+2026-05-25,Jorge Nava,Laptop Pro,Electrónica,Norte,19288.78,1,true
+2026-05-25,Ana Torres,Mouse Inalámbrico,Electrónica,Centro,1915.54,3,true
+2026-05-25,Jorge Nava,Mouse Inalámbrico,Electrónica,Occidente,2639.14,4,true
+2026-05-26,Carlos Peña,Carpeta,Papelería,Occidente,89.22,2,true
+2026-05-27,Carlos Peña,Silla Ergonómica,Muebles,Norte,6926.74,3,true
+2026-05-28,Jorge Nava,Marcadores,Papelería,Occidente,445.47,5,true
+2026-05-28,Luis Medina,,Papelería,Norte,460.84,5,true
+2026-05-29,Diana Solís,Teclado Mecánico,Electrónica,Occidente,8587.40,6,true
+2026-05-29,Diana Solís,Paquete de Hojas,Papelería,Occidente,369.93,3,true
+2026-05-30,Ana Torres,Paquete de Hojas,Papelería,Sur,246.11,2,false
+2026-05-31,Luis Medina,Cuaderno,Papelería,Occidente,251.95,4,false
+2026-05-31,Marta Ríos,Carpeta,Papelería,Occidente,217.14,5,false
+2026-06-01,Jorge Nava,Webcam HD,Electrónica,Occidente,4751.83,4,true
+2026-06-01,Carlos Peña,Archivero,Muebles,Occidente,9807.48,3,false
+2026-06-01,Diana Solís,Escritorio,Muebles,Occidente,15715.44,5,true
+2026-06-01,Ana Torres,Webcam HD,Electrónica,Occidente,2405.82,2,true
+2026-06-02,Carlos Peña,Marcadores,Papelería,Occidente,366.32,4,true
+2026-06-03,Ana Torres,Lámpara de Escritorio,Muebles,Sur,2971.81,4,true
+2026-06-05,Diana Solís,Teclado Mecánico,Electrónica,Norte,4333.36,3,false
+2026-06-05,Luis Medina,Carpeta,Papelería,Centro,214.68,5,true
+2026-06-09,Luis Medina,Webcam HD,Electrónica,Centro,5708.20,5,true
+2026-06-10,Luis Medina,Librero,Muebles,Norte,5487.00,2,true
+2026-06-11,Carlos Peña,Cuaderno,Papelería,Occidente,393.61,6,true
+2026-06-11,Diana Solís,Escritorio,Muebles,Occidente,6301.91,2,false
+2026-06-12,Jorge Nava,Mouse Inalámbrico,Electrónica,Centro,1892.33,3,true
+2026-06-12,Luis Medina,Carpeta,Papelería,Sur,93.43,2,false
+2026-06-12,Ana Torres,Lámpara de Escritorio,Muebles,Occidente,759.98,1,true
+2026-06-16,Jorge Nava,Laptop Pro,Electrónica,Sur,73406.76,4,true
+2026-06-16,Jorge Nava,Marcadores,Papelería,Centro,178.92,2,true
+2026-06-17,Jorge Nava,Laptop Pro,Electrónica,Centro,35975.88,2,true
+2026-06-17,Jorge Nava,Carpeta,Papelería,Centro,43.78,1,false
+2026-06-18,Diana Solís,Lámpara de Escritorio,Muebles,Norte,4841.88,6,true
+2026-06-18,Carlos Peña,Webcam HD,Electrónica,Occidente,6971.24,6,true
+2026-06-18,Diana Solís,Marcadores,Papelería,Occidente,188.23,2,true
+2026-06-19,Jorge Nava,Audífonos BT,Electrónica,Sur,5012.27,5,true
+2026-06-19,Diana Solís,Audífonos BT,Electrónica,Occidente,3951.49,4,true
+2026-06-20,Luis Medina,Cuaderno,Papelería,Occidente,317.79,5,true
+2026-06-20,Ana Torres,Webcam HD,Electrónica,Norte,2327.85,2,false
+2026-06-22,Carlos Peña,Marcadores,Papelería,Norte,94.49,1,true
+2026-06-23,Jorge Nava,Webcam HD,Electrónica,Norte,1234.42,1,true
+2026-06-25,Carlos Peña,Marcadores,Papelería,Centro,85.58,1,true
+2026-06-25,Carlos Peña,Teclado Mecánico,Electrónica,Norte,9066.07,6,true
+2026-06-25,Luis Medina,Audífonos BT,Electrónica,Occidente,5736.67,6,true
+2026-06-27,Diana Solís,,Papelería,Centro,63.18,1,true
+2026-06-28,Diana Solís,Laptop Pro,Electrónica,Norte,35220.07,2,true
+2026-06-30,Marta Ríos,Webcam HD,Electrónica,Occidente,7307.91,6,true
+2026-06-30,Ana Torres,,Electrónica,Centro,4925.74,5,true
+2026-06-30,Luis Medina,"Monitor 27""",Electrónica,Occidente,12882.98,3,true
+2026-07-02,Carlos Peña,Audífonos BT,Electrónica,Occidente,1023.39,1,true
+2026-07-03,Marta Ríos,Lámpara de Escritorio,Muebles,Norte,1617.70,2,true
+2026-07-03,Marta Ríos,Carpeta,Papelería,Sur,47.18,1,true

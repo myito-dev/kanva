@@ -1,17 +1,17 @@
-import type { ChartSuggestion, ColumnProfile, DatasetProfile, DatasetRow, Insight, Kpi, LocalAnalysis } from "./types";
+import type { Analysis, ChartSuggestion, ColumnProfile, DatasetProfile, DatasetRow, Insight, Kpi } from "./types";
 
 const MAX_BAR_CATEGORIES = 8;
 const MAX_TIME_POINTS = 24;
 const MAX_CHARTS = 4;
 
-function toNumber(value: string): number | null {
+export function toNumber(value: string): number | null {
   const cleaned = value.trim().replace(/,/g, "");
   if (cleaned === "") return null;
   const n = Number(cleaned);
   return Number.isNaN(n) ? null : n;
 }
 
-function formatNumber(n: number): string {
+export function formatNumber(n: number): string {
   return new Intl.NumberFormat("es-MX", { maximumFractionDigits: 2 }).format(n);
 }
 
@@ -71,7 +71,7 @@ function buildInsights(profile: DatasetProfile, rows: DatasetRow[]): Insight[] {
   return insights.slice(0, 4);
 }
 
-function aggregateByCategory(rows: DatasetRow[], categoryCol: string, numericCol: string | null): ChartSuggestion["points"] {
+export function aggregateByCategory(rows: DatasetRow[], categoryCol: string, numericCol: string | null): ChartSuggestion["points"] {
   const sums = new Map<string, { sum: number; count: number }>();
   for (const row of rows) {
     const key = (row[categoryCol] ?? "").trim();
@@ -95,7 +95,7 @@ function aggregateByCategory(rows: DatasetRow[], categoryCol: string, numericCol
   return [...top, { label: "Otros", value: otrosValue }];
 }
 
-function aggregateByDate(rows: DatasetRow[], dateCol: string, numericCol: string): ChartSuggestion["points"] {
+export function aggregateByDate(rows: DatasetRow[], dateCol: string, numericCol: string): ChartSuggestion["points"] {
   const dailySums = new Map<string, number>();
   for (const row of rows) {
     const key = (row[dateCol] ?? "").trim();
@@ -160,8 +160,9 @@ function buildCharts(profile: DatasetProfile, rows: DatasetRow[]): ChartSuggesti
   return charts.slice(0, MAX_CHARTS);
 }
 
-export function analyzeLocal(profile: DatasetProfile, rows: DatasetRow[]): LocalAnalysis {
+export function analyzeLocal(profile: DatasetProfile, rows: DatasetRow[]): Analysis {
   return {
+    source: "local",
     kpis: buildKpis(profile, rows),
     insights: buildInsights(profile, rows),
     charts: buildCharts(profile, rows),

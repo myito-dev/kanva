@@ -86,11 +86,13 @@ export default function HomePage() {
   const [error, setError] = useState<string | null>(null);
   const [pending, startTransition] = useTransition();
   const [dragActive, setDragActive] = useState(false);
+  const [mode, setMode] = useState<"ai" | "local">("local");
 
   function submitFile(file: File) {
     setError(null);
     const formData = new FormData();
     formData.set("dataset", file);
+    formData.set("mode", mode);
     startTransition(async () => {
       const response = await analyzeDataset(formData);
       if ("error" in response) {
@@ -125,10 +127,31 @@ export default function HomePage() {
     <div className="mx-auto max-w-5xl space-y-6 px-4 py-10 sm:px-6">
       <input id="dataset-input" type="file" accept=".csv,.xlsx,.xls" className="hidden" onChange={onInputChange} />
 
-      <div>
-        <p className="text-xs font-semibold uppercase tracking-wide text-accent">Kanva</p>
-        <h1 className="text-2xl font-bold tracking-tight text-ink">Análisis</h1>
-        <p className="text-sm text-ink-secondary">Sube un archivo CSV o Excel para obtener un perfil y análisis de tus datos.</p>
+      <div className="flex flex-wrap items-end justify-between gap-4">
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-wide text-accent">Kanva</p>
+          <h1 className="text-2xl font-bold tracking-tight text-ink">Análisis</h1>
+          <p className="text-sm text-ink-secondary">Sube un archivo CSV o Excel para obtener un perfil y análisis de tus datos.</p>
+        </div>
+        <div className="flex items-center gap-2">
+          <span className="text-[10px] font-semibold uppercase tracking-wide text-ink-muted">Modo de análisis</span>
+          <div className="flex rounded-full border border-hairline bg-page p-1 text-xs font-medium">
+            <button
+              type="button"
+              onClick={() => setMode("local")}
+              className={`rounded-full px-3 py-1.5 transition-colors ${mode === "local" ? "bg-accent text-accent-ink" : "text-ink-secondary"}`}
+            >
+              Local
+            </button>
+            <button
+              type="button"
+              onClick={() => setMode("ai")}
+              className={`rounded-full px-3 py-1.5 transition-colors ${mode === "ai" ? "bg-accent text-accent-ink" : "text-ink-secondary"}`}
+            >
+              IA
+            </button>
+          </div>
+        </div>
       </div>
 
       <AnimatePresence>
@@ -194,6 +217,9 @@ export default function HomePage() {
                 <p className="text-sm text-ink-muted">Archivo</p>
                 <p className="font-semibold text-ink">{result.fileName}</p>
               </div>
+              <span className="pill border border-hairline bg-page px-3 py-1 text-xs font-semibold text-ink-secondary">
+                Fuente de análisis: {result.analysis.source === "ai" ? "IA" : "Local"}
+              </span>
               <label
                 htmlFor="dataset-input"
                 className="pill cursor-pointer border border-hairline bg-page px-4 py-2 text-xs font-semibold text-ink-secondary hover:border-accent hover:text-accent"

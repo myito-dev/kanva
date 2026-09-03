@@ -44,7 +44,10 @@ export interface ChartSuggestion {
   points: ChartPoint[];
 }
 
-export interface LocalAnalysis {
+export type AnalysisSource = "ai" | "local";
+
+export interface Analysis {
+  source: AnalysisSource;
   kpis: Kpi[];
   insights: Insight[];
   charts: ChartSuggestion[];
@@ -54,7 +57,7 @@ export interface AnalyzeResult {
   profile: DatasetProfile;
   previewRows: DatasetRow[];
   fileName: string;
-  analysis: LocalAnalysis;
+  analysis: Analysis;
 }
 
 export type BoardWidgetContent =
