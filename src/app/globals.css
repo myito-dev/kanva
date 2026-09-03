@@ -1,0 +1,174 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light;
+  /* Light, pastel, minimalist palette — follows the user's reference
+     screenshots (soft mint/pink/lavender/yellow stat tiles, white rounded
+     cards, medium-blue accent). Light mode only, by design request. */
+  --page: #f7f7fb;
+  --surface: #ffffff;
+  --surface-raised: #ffffff;
+  --ink: #17172a;
+  --ink-secondary: #6b6b7c;
+  --ink-muted: #9797a6;
+  --hairline: rgba(23, 23, 42, 0.08);
+  --border: rgba(23, 23, 42, 0.08);
+
+  /* Primary accent — categorical slot 1 (blue), validated via dataviz
+     skill's validate_palette.js. Drives nav/buttons/links/chart lines. */
+  --accent: #2a78d6;
+  --accent-ink: #ffffff;
+
+  /* Stat-tile identity set — categorical slots 3/5/7/4 (aqua/magenta/violet/
+     yellow), fixed order, never cycled or reassigned per-render. Each tile
+     always pairs the hue with an icon + label, so the sub-3:1 contrast on
+     light surface (flagged by the validator) is covered by the relief rule. */
+  --tile-mint: #1baf7a;
+  --tile-pink: #e87ba4;
+  --tile-violet: #4a3aa7;
+  --tile-yellow: #eda100;
+
+  --positive: #0ca30c;
+  --negative: #d03b3b;
+  --warning: #fab219;
+
+  --shadow-color: 230 25% 25%;
+  --radius-card: 1.25rem;
+}
+
+@theme inline {
+  --color-page: var(--page);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-ink: var(--ink);
+  --color-ink-secondary: var(--ink-secondary);
+  --color-ink-muted: var(--ink-muted);
+  --color-hairline: var(--hairline);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-tile-mint: var(--tile-mint);
+  --color-tile-pink: var(--tile-pink);
+  --color-tile-violet: var(--tile-violet);
+  --color-tile-yellow: var(--tile-yellow);
+  --color-positive: var(--positive);
+  --color-negative: var(--negative);
+  --color-warning: var(--warning);
+  --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --radius-2xl: 1rem;
+  --radius-3xl: var(--radius-card);
+}
+
+* {
+  border-color: var(--border);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--page);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--accent) 25%, transparent);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: color-mix(in oklab, var(--ink) 12%, transparent);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+.card {
+  background: var(--surface-raised);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  box-shadow: 0 1px 2px hsl(var(--shadow-color) / 0.04), 0 12px 28px -16px hsl(var(--shadow-color) / 0.16);
+}
+
+.pill {
+  border-radius: 999px;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Pastel stat-tile treatment: soft tinted background, saturated icon badge.
+   One class per fixed categorical slot — never reassigned per instance. */
+.tile-mint {
+  background: color-mix(in oklab, var(--tile-mint) 14%, white);
+}
+.tile-pink {
+  background: color-mix(in oklab, var(--tile-pink) 14%, white);
+}
+.tile-violet {
+  background: color-mix(in oklab, var(--tile-violet) 12%, white);
+}
+.tile-yellow {
+  background: color-mix(in oklab, var(--tile-yellow) 16%, white);
+}
+.tile-badge-mint {
+  background: var(--tile-mint);
+}
+.tile-badge-pink {
+  background: var(--tile-pink);
+}
+.tile-badge-violet {
+  background: var(--tile-violet);
+}
+.tile-badge-yellow {
+  background: var(--tile-yellow);
+}
+
+/* iOS Safari auto-zooms on input focus below 16px — see Findo's globals.css
+   for the same fix and rationale. */
+@media (max-width: 640px) {
+  input,
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* react-colorful: restyle its default chrome to match the pastel/rounded
+   design system instead of shipping its square default look. */
+.kanva-color-picker.react-colorful {
+  width: 100%;
+  gap: 10px;
+}
+.kanva-color-picker .react-colorful__saturation {
+  border-radius: 0.75rem;
+  border-bottom: none;
+}
+.kanva-color-picker .react-colorful__hue,
+.kanva-color-picker .react-colorful__alpha {
+  height: 12px;
+  border-radius: 999px;
+}
+.kanva-color-picker .react-colorful__pointer {
+  width: 16px;
+  height: 16px;
+  border-width: 2px;
+}
+
+/* Dot-grid alignment aid on the Tablero canvas. */
+.board-grid {
+  background-image: radial-gradient(circle, rgba(23, 23, 42, 0.14) 1px, transparent 1px);
+  background-size: 24px 24px;
+}

@@ -1,0 +1,16 @@
+fecha,vendedor,producto,categoria,region,monto,unidades,activo
+2026-01-05,Ana Torres,Laptop Pro,Electrónica,Norte,18500.00,2,true
+2026-01-06,Luis Medina,Silla Ergonómica,Muebles,Sur,2300.50,1,true
+2026-01-07,Marta Ríos,Laptop Pro,Electrónica,Centro,9250.00,1,true
+2026-01-08,Ana Torres,Monitor 27",Electrónica,Norte,4200.00,2,true
+2026-01-09,Luis Medina,Escritorio,Muebles,Sur,3100.00,1,false
+2026-01-10,Carlos Peña,Teclado Mecánico,Electrónica,Centro,1450.00,3,true
+2026-01-12,Marta Ríos,Silla Ergonómica,Muebles,Norte,2300.50,1,true
+2026-01-13,Ana Torres,Mouse Inalámbrico,Electrónica,Sur,650.00,5,true
+2026-01-14,Carlos Peña,,Electrónica,Centro,890.00,1,true
+2026-01-15,Luis Medina,Lámpara de Escritorio,Muebles,Norte,780.00,2,false
+2026-01-16,Marta Ríos,Laptop Pro,Electrónica,Sur,9250.00,1,true
+2026-01-18,Ana Torres,Silla Ergonómica,Muebles,Centro,2300.50,1,true
+2026-01-19,Carlos Peña,Monitor 27",Electrónica,Norte,4200.00,2,true
+2026-01-20,Luis Medina,Teclado Mecánico,Electrónica,Sur,1450.00,1,true
+2026-01-22,Marta Ríos,Escritorio,Muebles,Centro,3100.00,1,false
