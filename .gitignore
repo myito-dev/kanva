@@ -48,3 +48,6 @@ skills-lock.json
 *.tsbuildinfo
 next-env.d.ts
 dev.log
+
+# capturas para la tesis
+/capturas/

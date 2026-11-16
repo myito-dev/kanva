@@ -4,12 +4,15 @@ import { analyzeLocal, computeCharts, computeKpis } from "./localAnalysis";
 import type { DatasetAnalysis, DatasetProfile, DatasetRow } from "./types";
 
 const GEMINI_ENDPOINT = "https://generativelanguage.googleapis.com/v1beta/models";
-// Alias that Google keeps pointed at a current Flash model, so the app doesn't
-// break when a pinned version is retired. Override with GEMINI_MODEL.
-const DEFAULT_MODEL = "gemini-flash-latest";
-// Lighter model tried when the main one is overloaded (503) or erroring (5xx).
-const BACKUP_MODEL = "gemini-flash-lite-latest";
-const REQUEST_TIMEOUT_MS = 30_000;
+// Aliases that Google keeps pointed at current models, so the app doesn't break
+// when a pinned version is retired. Flash-Lite goes first: on the free tier it
+// answers in seconds while Flash is often overloaded. Override with GEMINI_MODEL.
+const DEFAULT_MODEL = "gemini-flash-lite-latest";
+// Tried in order when a model times out, is overloaded (5xx), rate-limited
+// (429) or retired (404). A different Lite generation doesn't share the first
+// model's load, and Flash is the last resort.
+const BACKUP_MODELS = ["gemini-3.1-flash-lite", "gemini-flash-latest"];
+const REQUEST_TIMEOUT_MS = 15_000;
 
 /** Thrown when the AI mode can't run; the message is shown to the user and
  * the caller falls back to the local analysis. */
@@ -51,9 +54,10 @@ async function callGemini(profile: DatasetProfile): Promise<unknown> {
     throw new AiUnavailableError("El modo IA no está configurado (falta GEMINI_API_KEY). Se aplicó el análisis local.");
   }
   const primaryModel = process.env.GEMINI_MODEL || DEFAULT_MODEL;
-  const models = primaryModel === BACKUP_MODEL ? [primaryModel] : [primaryModel, BACKUP_MODEL];
+  const models = [primaryModel, ...BACKUP_MODELS.filter((m) => m !== primaryModel)];
 
   let response: Response | null = null;
+  let failure = "No se pudo conectar con Gemini. Se aplicó el análisis local.";
   for (const model of models) {
     try {
       response = await fetch(`${GEMINI_ENDPOINT}/${model}:generateContent`, {
@@ -67,12 +71,18 @@ async function callGemini(profile: DatasetProfile): Promise<unknown> {
         signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
       });
     } catch {
-      throw new AiUnavailableError("No se pudo conectar con Gemini. Se aplicó el análisis local.");
+      // Timeout or network error: try the next model.
+      response = null;
+      failure = "Gemini no respondió a tiempo. Se aplicó el análisis local.";
+      continue;
     }
-    if (response.status < 500) break;
+    if (response.ok) break;
+    failure = friendlyHttpError(response.status);
+    // A bad key or request fails the same way on every model; the rest may not.
+    if ([400, 401, 403].includes(response.status)) break;
   }
 
-  if (!response || !response.ok) throw new AiUnavailableError(friendlyHttpError(response?.status ?? 0));
+  if (!response || !response.ok) throw new AiUnavailableError(failure);
 
   const data = await response.json();
   const text: unknown = data?.candidates?.[0]?.content?.parts?.[0]?.text;
