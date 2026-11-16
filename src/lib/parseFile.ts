@@ -17,13 +17,14 @@ export function parseCsv(buffer: Buffer): DatasetRow[] {
 
 /** Excel via SheetJS — first sheet, first row as headers, cell values
  * resolved to their displayed/calculated form (mirrors openpyxl's
- * data_only=True). */
+ * data_only=True). Excel's default date format (m/d/yy) is rewritten as
+ * ISO so dates aren't read month-first later on. */
 export function parseExcel(buffer: Buffer): DatasetRow[] {
-  const workbook = XLSX.read(buffer, { type: "buffer", cellDates: true });
+  const workbook = XLSX.read(buffer, { type: "buffer", dateNF: "yyyy-mm-dd" });
   const firstSheetName = workbook.SheetNames[0];
   const sheet = workbook.Sheets[firstSheetName];
 
-  const rows = XLSX.utils.sheet_to_json<Record<string, unknown>>(sheet, { defval: "", raw: false });
+  const rows = XLSX.utils.sheet_to_json<Record<string, unknown>>(sheet, { defval: "", raw: false, dateNF: "yyyy-mm-dd" });
 
   return rows
     .map((row) => {

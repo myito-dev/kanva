@@ -31,6 +31,8 @@ export interface Insight {
 
 export type ChartKind = "bar" | "line";
 
+export type Aggregation = "sum" | "avg" | "count" | "min" | "max";
+
 export interface ChartPoint {
   label: string;
   value: number;
@@ -40,21 +42,49 @@ export interface ChartSuggestion {
   id: string;
   kind: ChartKind;
   title: string;
-  aggregation: "sum" | "avg" | "count";
+  aggregation: Aggregation;
   points: ChartPoint[];
 }
 
-export interface LocalAnalysis {
+/** A KPI to compute: which column, how to aggregate it. With no column it
+ * counts rows. */
+export interface KpiSpec {
+  label: string;
+  column: string | null;
+  aggregation: Aggregation;
+}
+
+/** A chart to compute: x is a date or category column, y a numeric column
+ * (or null to count rows per x value). */
+export interface ChartSpec {
+  title: string;
+  x: string;
+  y: string | null;
+  aggregation: Aggregation;
+}
+
+export interface DatasetAnalysis {
+  /** Short narrative overview; only the AI mode writes one. */
+  summary?: string;
   kpis: Kpi[];
   insights: Insight[];
   charts: ChartSuggestion[];
 }
 
+export type AnalysisMode = "ai" | "local";
+
+/** "local_fallback" = AI was requested but unavailable, so local rules ran. */
+export type AnalysisSource = "ai" | "local" | "local_fallback";
+
 export interface AnalyzeResult {
+  /** Unique per analysis run; lets the board notice a new dataset. */
+  id: string;
   profile: DatasetProfile;
   previewRows: DatasetRow[];
   fileName: string;
-  analysis: LocalAnalysis;
+  analysis: DatasetAnalysis;
+  analysisSource: AnalysisSource;
+  aiWarning?: string;
 }
 
 export type BoardWidgetContent =
@@ -74,6 +104,8 @@ export interface BoardWidget {
 }
 
 export interface BoardState {
+  /** AnalyzeResult.id the widgets were built from. */
+  datasetId?: string;
   background: string;
   widgets: BoardWidget[];
 }

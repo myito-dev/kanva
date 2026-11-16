@@ -41,7 +41,13 @@ function emitChange() {
 
 export function setDatasetResult(next: AnalyzeResult | null) {
   if (next) {
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+    try {
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+    } catch {
+      // Storage full (very wide datasets): keep only the rows the preview
+      // table actually shows.
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify({ ...next, previewRows: next.previewRows.slice(0, 20) }));
+    }
   } else {
     window.localStorage.removeItem(STORAGE_KEY);
   }

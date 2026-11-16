@@ -1,0 +1,362 @@
+fecha,sucursal,vendedor,categoria,producto,canal,monto,unidades,descuento_pct,cliente_nuevo
+2025-01-02,Puebla Centro,Carlos Núñez,Accesorios,Teclado mecánico,Tienda,2017.12,2,0,no
+2025-01-03,Atlixco,Sofía Ramírez,Muebles,Silla ergonómica,En línea,3989.44,2,0,no
+2025-01-05,Puebla Centro,Luis Medina,Accesorios,Base para laptop,Tienda,1015.29,3,,sí
+2025-01-05,Tehuacán,Ana Torres,Electrónica,Audífonos BT,Tienda,1112.38,1,,no
+2025-01-06,Cholula,Diego Flores,Electrónica,"Tableta 10""",En línea,5455.66,1,,sí
+2025-01-07,Tehuacán,Luis Medina,Muebles,Librero,Tienda,3896.33,3,10,no
+2025-01-08,Angelópolis,Luis Medina,Muebles,Escritorio ajustable,Tienda,13736.29,3,,no
+2025-01-09,Puebla Centro,Ana Torres,Papelería,Plumas (caja),Teléfono,899.58,12,,sí
+2025-01-09,Cholula,Ana Torres,Papelería,Cuaderno profesional,Teléfono,200.77,4,15,no
+2025-01-10,Cholula,Marta Ríos,Papelería,Cuaderno profesional,En línea,296.93,6,5,no
+2025-01-11,Tehuacán,Ana Torres,Electrónica,"Monitor 27""",En línea,7331.26,2,5,sí
+2025-01-12,Angelópolis,Jorge Pérez,Accesorios,Teclado mecánico,Tienda,2915.62,3,,sí
+2025-01-12,Angelópolis,Luis Medina,Electrónica,"Tableta 10""",En línea,17136.16,3,0,no
+2025-01-13,Puebla Centro,Sofía Ramírez,Electrónica,Audífonos BT,Tienda,1033.46,1,10,no
+2025-01-13,Tehuacán,Luis Medina,Software,Antivirus anual,En línea,1636.9,3,15,sí
+2025-01-14,Angelópolis,Carlos Núñez,Papelería,Plumas (caja),En línea,676.99,9,,no
+2025-01-15,Atlixco,Sofía Ramírez,Papelería,Plumas (caja),En línea,929.59,12,,sí
+2025-01-15,Angelópolis,Diego Flores,Muebles,Librero,En línea,3069.06,2,,no
+2025-01-16,Puebla Centro,Elena Vázquez,Muebles,Escritorio ajustable,En línea,7911,2,15,no
+2025-01-17,Puebla Centro,Jorge Pérez,Papelería,Plumas (caja),Teléfono,907.55,11,,no
+2025-01-17,Cholula,Carlos Núñez,Muebles,Escritorio ajustable,Tienda,8828.93,2,,no
+2025-01-18,Puebla Centro,Ana Torres,Electrónica,"Monitor 27""",Tienda,6935.93,2,10,no
+2025-01-18,Puebla Centro,Elena Vázquez,Software,Licencia ofimática,Tienda,3235.04,2,15,no
+2025-01-19,Cholula,Carlos Núñez,Papelería,Paquete de hojas,Tienda,685.96,7,,no
+2025-01-19,Atlixco,Elena Vázquez,Papelería,Paquete de hojas,Tienda,307.18,3,15,sí
+2025-01-20,Puebla Centro,Sofía Ramírez,Electrónica,Audífonos BT,En línea,1081.35,1,5,sí
+2025-01-21,Angelópolis,Luis Medina,Software,Licencia ofimática,Teléfono,5061.51,3,,no
+2025-01-22,Puebla Centro,Elena Vázquez,Accesorios,Base para laptop,Teléfono,1016.54,3,0,no
+2025-01-24,Cholula,Sofía Ramírez,Electrónica,"Monitor 27""",Tienda,10786.49,3,,no
+2025-01-25,Puebla Centro,Ana Torres,Papelería,Plumas (caja),Tienda,371.44,5,0,no
+2025-01-26,Atlixco,Ana Torres,Electrónica,"Monitor 27""",En línea,10192.42,3,0,no
+2025-01-28,Puebla Centro,Luis Medina,Electrónica,"Tableta 10""",Teléfono,10293.68,2,0,no
+2025-01-29,Cholula,Marta Ríos,Papelería,Cuaderno profesional,Tienda,158.42,3,15,no
+2025-02-03,Cholula,Luis Medina,Muebles,Librero,Tienda,1287.93,1,,no
+2025-02-04,Angelópolis,Carlos Núñez,Electrónica,"Monitor 27""",En línea,8659.55,3,0,no
+2025-02-05,Tehuacán,Diego Flores,Muebles,Escritorio ajustable,Tienda,13088.68,3,10,no
+2025-02-07,Puebla Centro,Jorge Pérez,Muebles,Escritorio ajustable,Tienda,4061.54,1,,no
+2025-02-08,Puebla Centro,Ana Torres,Electrónica,Laptop Pro 14,En línea,27147.16,2,10,no
+2025-02-08,Angelópolis,Luis Medina,Papelería,Paquete de hojas,Tienda,961.3,10,5,no
+2025-02-09,Puebla Centro,Jorge Pérez,Accesorios,Teclado mecánico,Tienda,990.54,1,5,no
+2025-02-10,Angelópolis,Sofía Ramírez,Electrónica,"Monitor 27""",Tienda,6325.05,2,,sí
+2025-02-10,Puebla Centro,Sofía Ramírez,Papelería,Paquete de hojas,En línea,467.63,5,0,no
+2025-02-11,Puebla Centro,Sofía Ramírez,Software,Licencia ofimática,Tienda,1451.63,1,5,no
+2025-02-11,Angelópolis,Ana Torres,Software,Licencia ofimática,Tienda,1457.94,1,,no
+2025-02-13,Angelópolis,Sofía Ramírez,Muebles,Silla ergonómica,Tienda,3315,2,,no
+2025-02-14,Cholula,Carlos Núñez,Electrónica,"Tableta 10""",Tienda,5547.99,1,15,sí
+2025-02-14,Puebla Centro,Ana Torres,Muebles,Escritorio ajustable,En línea,8026.97,2,15,no
+2025-02-16,Puebla Centro,Marta Ríos,Muebles,Escritorio ajustable,En línea,3768.77,1,15,no
+2025-02-16,Atlixco,Elena Vázquez,Accesorios,Mouse inalámbrico,En línea,788.71,3,,no
+2025-02-17,Puebla Centro,Marta Ríos,Papelería,Plumas (caja),En línea,848.48,12,5,no
+2025-02-18,Puebla Centro,Elena Vázquez,Muebles,Escritorio ajustable,Teléfono,3695.36,1,5,no
+2025-02-18,Cholula,Carlos Núñez,Accesorios,Base para laptop,Tienda,1011.65,3,15,no
+2025-02-19,Cholula,Carlos Núñez,Electrónica,Audífonos BT,Tienda,950.99,1,15,sí
+2025-02-19,Atlixco,Sofía Ramírez,Papelería,Cuaderno profesional,Tienda,593.99,12,10,no
+2025-02-21,Puebla Centro,Luis Medina,Software,Antivirus anual,Tienda,1346.01,3,,no
+2025-02-21,Angelópolis,Elena Vázquez,Papelería,Plumas (caja),En línea,482.85,7,10,no
+2025-02-22,Angelópolis,Elena Vázquez,Accesorios,Mouse inalámbrico,Tienda,261.83,1,10,sí
+2025-02-22,Cholula,Marta Ríos,Electrónica,"Tableta 10""",En línea,17073.43,3,,no
+2025-02-23,Puebla Centro,Ana Torres,Papelería,Paquete de hojas,Tienda,1097.31,12,5,sí
+2025-02-25,Puebla Centro,Marta Ríos,Muebles,Escritorio ajustable,Tienda,4355.55,1,5,sí
+2025-02-26,Angelópolis,Marta Ríos,Electrónica,Laptop Pro 14,En línea,12840.92,1,0,sí
+2025-02-27,Tehuacán,Jorge Pérez,Accesorios,Base para laptop,En línea,1022.78,3,10,sí
+2025-02-28,Angelópolis,Sofía Ramírez,Electrónica,"Tableta 10""",Tienda,5424.33,1,0,no
+2025-03-01,Angelópolis,Ana Torres,Muebles,Escritorio ajustable,Tienda,5255.46,1,10,no
+2025-03-01,Puebla Centro,Sofía Ramírez,Papelería,Plumas (caja),En línea,956.89,12,15,sí
+2025-03-02,Puebla Centro,Sofía Ramírez,Accesorios,Teclado mecánico,En línea,2469.69,2,5,sí
+2025-03-02,Puebla Centro,Marta Ríos,Muebles,Librero,En línea,1605,1,5,no
+2025-03-03,Puebla Centro,Ana Torres,Electrónica,"Monitor 27""",En línea,7746.92,2,15,no
+2025-03-04,Cholula,Elena Vázquez,Muebles,Silla ergonómica,Tienda,6029.95,3,5,no
+2025-03-05,Tehuacán,Jorge Pérez,Electrónica,"Monitor 27""",Tienda,12199.66,3,5,sí
+2025-03-06,Puebla Centro,Ana Torres,Software,Antivirus anual,Tienda,1102.53,2,,no
+2025-03-08,Puebla Centro,Diego Flores,Software,Licencia ofimática,Tienda,1769.21,1,,no
+2025-03-09,Angelópolis,Carlos Núñez,Accesorios,Teclado mecánico,En línea,2354.44,2,,sí
+2025-03-10,Angelópolis,Diego Flores,Papelería,Cuaderno profesional,En línea,598,11,5,no
+2025-03-10,Puebla Centro,Diego Flores,Papelería,Plumas (caja),Tienda,472.73,6,0,no
+2025-03-11,Angelópolis,Carlos Núñez,Muebles,Librero,Tienda,1494.8,1,0,no
+2025-03-12,Puebla Centro,Carlos Núñez,Papelería,Paquete de hojas,En línea,1097.46,11,5,sí
+2025-03-13,Puebla Centro,Jorge Pérez,Muebles,Escritorio ajustable,Tienda,8909.6,2,15,sí
+2025-03-14,Puebla Centro,Carlos Núñez,Accesorios,Base para laptop,En línea,1150.67,3,,no
+2025-03-17,Angelópolis,Marta Ríos,Papelería,Paquete de hojas,Tienda,210.6,2,15,no
+2025-03-21,Puebla Centro,Ana Torres,Electrónica,Laptop Pro 14,Teléfono,47432.87,3,5,no
+2025-03-21,Puebla Centro,Elena Vázquez,Electrónica,Laptop Pro 14,Tienda,33027.45,2,,no
+2025-03-22,Angelópolis,Elena Vázquez,Papelería,Cuaderno profesional,Tienda,545.33,9,5,no
+2025-03-23,Cholula,Sofía Ramírez,Papelería,Paquete de hojas,Tienda,588.5,5,,sí
+2025-03-24,Puebla Centro,Luis Medina,Papelería,Paquete de hojas,En línea,1270.28,13,,sí
+2025-03-25,Puebla Centro,Jorge Pérez,Electrónica,"Tableta 10""",Teléfono,17065.19,3,,no
+2025-03-25,Cholula,Sofía Ramírez,Electrónica,"Monitor 27""",Tienda,11385.25,3,,no
+2025-03-26,Puebla Centro,Luis Medina,Papelería,Paquete de hojas,Tienda,1246.85,11,5,no
+2025-03-26,Puebla Centro,Sofía Ramírez,Muebles,Librero,En línea,1688.04,1,15,no
+2025-03-27,Puebla Centro,Sofía Ramírez,Electrónica,"Monitor 27""",Teléfono,3888.4,1,15,no
+2025-03-27,Puebla Centro,Elena Vázquez,Papelería,Paquete de hojas,Tienda,1222.43,11,0,sí
+2025-03-28,Puebla Centro,Elena Vázquez,Muebles,Silla ergonómica,En línea,2047,1,15,no
+2025-03-28,Puebla Centro,Ana Torres,Electrónica,"Monitor 27""",Tienda,3634,1,0,no
+2025-03-29,Puebla Centro,Elena Vázquez,Electrónica,"Monitor 27""",En línea,12313.41,3,5,no
+2025-03-30,Tehuacán,Marta Ríos,Software,Antivirus anual,Tienda,1221.81,2,,sí
+2025-03-31,Puebla Centro,Jorge Pérez,Papelería,Paquete de hojas,En línea,898.21,8,5,no
+2025-04-01,Puebla Centro,Diego Flores,Muebles,Silla ergonómica,Tienda,2200.3,1,15,no
+2025-04-03,Angelópolis,Ana Torres,Accesorios,Mouse inalámbrico,Tienda,1040.18,3,10,sí
+2025-04-04,Cholula,Jorge Pérez,Electrónica,"Monitor 27""",En línea,10936.82,3,0,no
+2025-04-05,Puebla Centro,Jorge Pérez,Electrónica,Audífonos BT,Tienda,2501.74,2,5,sí
+2025-04-06,Puebla Centro,Carlos Núñez,Software,Licencia ofimática,Tienda,1831.59,1,5,no
+2025-04-08,Angelópolis,Ana Torres,Electrónica,Audífonos BT,Tienda,1405.32,1,15,no
+2025-04-09,Angelópolis,Sofía Ramírez,Papelería,Plumas (caja),Tienda,333.66,4,0,no
+2025-04-10,Puebla Centro,Jorge Pérez,Electrónica,Audífonos BT,En línea,3875.75,3,,no
+2025-04-12,Puebla Centro,Diego Flores,Electrónica,Audífonos BT,En línea,2632.69,2,5,no
+2025-04-12,Puebla Centro,Luis Medina,Muebles,Silla ergonómica,Tienda,4748.47,2,5,no
+2025-04-13,Cholula,Carlos Núñez,Papelería,Paquete de hojas,Tienda,1549.85,13,15,no
+2025-04-14,Puebla Centro,Elena Vázquez,Muebles,Librero,Tienda,3183.81,2,,sí
+2025-04-14,Angelópolis,Diego Flores,Papelería,Plumas (caja),En línea,389.97,4,,sí
+2025-04-18,Cholula,Ana Torres,Electrónica,"Tableta 10""",En línea,12186.47,2,10,sí
+2025-04-19,Puebla Centro,Diego Flores,Papelería,Paquete de hojas,Tienda,241.34,2,5,no
+2025-04-20,Puebla Centro,Ana Torres,Papelería,Cuaderno profesional,Teléfono,256.92,4,10,sí
+2025-04-21,Cholula,Diego Flores,Muebles,Librero,En línea,4749.21,3,10,no
+2025-04-22,Puebla Centro,Sofía Ramírez,Papelería,Paquete de hojas,En línea,813.72,7,,sí
+2025-04-24,Puebla Centro,Ana Torres,Muebles,Escritorio ajustable,En línea,14851.56,3,15,no
+2025-04-24,Atlixco,Ana Torres,Electrónica,Audífonos BT,Tienda,1181.29,1,10,no
+2025-04-25,Puebla Centro,Ana Torres,Electrónica,"Monitor 27""",Teléfono,7486.1,2,15,no
+2025-04-27,Atlixco,Sofía Ramírez,Electrónica,"Monitor 27""",Tienda,11858.85,3,,no
+2025-04-27,Cholula,Luis Medina,Software,Licencia ofimática,En línea,5960.76,3,,no
+2025-04-28,Angelópolis,Sofía Ramírez,Papelería,Plumas (caja),En línea,674.22,8,15,no
+2025-04-29,Atlixco,Ana Torres,Muebles,Escritorio ajustable,En línea,4847.07,1,5,no
+2025-04-30,Puebla Centro,Carlos Núñez,Papelería,Plumas (caja),En línea,991.84,12,15,no
+2025-04-30,Tehuacán,Ana Torres,Accesorios,Base para laptop,Tienda,917.36,2,,sí
+2025-05-02,Angelópolis,Jorge Pérez,Accesorios,Mouse inalámbrico,Tienda,749.24,2,0,sí
+2025-05-02,Puebla Centro,Sofía Ramírez,Accesorios,Base para laptop,Tienda,1318.09,3,5,no
+2025-05-03,Cholula,Diego Flores,Accesorios,Teclado mecánico,Tienda,2848.51,2,5,no
+2025-05-04,Puebla Centro,Carlos Núñez,Accesorios,Base para laptop,En línea,459.08,1,,no
+2025-05-05,Tehuacán,Diego Flores,Electrónica,Laptop Pro 14,En línea,59336.23,3,15,no
+2025-05-06,Puebla Centro,Jorge Pérez,Papelería,Cuaderno profesional,Tienda,287.47,4,,no
+2025-05-09,Cholula,Jorge Pérez,Papelería,Paquete de hojas,Tienda,753.3,6,,sí
+2025-05-10,Puebla Centro,Diego Flores,Muebles,Librero,Tienda,2046.76,1,0,no
+2025-05-12,Tehuacán,Elena Vázquez,Muebles,Librero,Tienda,3463.54,2,,sí
+2025-05-13,Atlixco,Jorge Pérez,Electrónica,"Monitor 27""",En línea,9665.01,2,,no
+2025-05-14,Puebla Centro,Jorge Pérez,Electrónica,"Tableta 10""",Teléfono,22948.5,3,15,no
+2025-05-14,Puebla Centro,Jorge Pérez,Muebles,Silla ergonómica,En línea,7325.84,3,15,no
+2025-05-16,Puebla Centro,Ana Torres,Accesorios,Teclado mecánico,En línea,1418.63,1,,sí
+2025-05-17,Puebla Centro,Luis Medina,Electrónica,"Tableta 10""",Teléfono,20618.81,3,,no
+2025-05-19,Atlixco,Sofía Ramírez,Muebles,Librero,Tienda,5566.48,3,15,no
+2025-05-20,Tehuacán,Luis Medina,Muebles,Silla ergonómica,En línea,4891.43,2,,no
+2025-05-22,Puebla Centro,Diego Flores,Software,Antivirus anual,Teléfono,739.05,1,,no
+2025-05-23,Puebla Centro,Marta Ríos,Electrónica,Laptop Pro 14,Tienda,19217.81,1,10,no
+2025-05-24,Puebla Centro,Ana Torres,Electrónica,"Monitor 27""",En línea,14425.73,3,,no
+2025-05-26,Cholula,Luis Medina,Accesorios,Teclado mecánico,Teléfono,1364.54,1,0,no
+2025-05-26,Angelópolis,Jorge Pérez,Papelería,Paquete de hojas,En línea,541.2,4,0,no
+2025-05-27,Puebla Centro,Carlos Núñez,Software,Antivirus anual,Tienda,1995.14,3,10,no
+2025-05-28,Cholula,Luis Medina,Electrónica,"Tableta 10""",En línea,7730.25,1,5,no
+2025-05-29,Angelópolis,Carlos Núñez,Papelería,Cuaderno profesional,En línea,136.42,2,5,no
+2025-06-01,Atlixco,Diego Flores,Accesorios,Base para laptop,Tienda,1454.24,3,0,no
+2025-06-02,Puebla Centro,Sofía Ramírez,Software,Licencia ofimática,Teléfono,2045.78,1,,no
+2025-06-02,Cholula,Carlos Núñez,Electrónica,Laptop Pro 14,Teléfono,38362.56,2,,sí
+2025-06-04,Puebla Centro,Carlos Núñez,Papelería,Paquete de hojas,Tienda,1039.5,9,15,no
+2025-06-05,Angelópolis,Elena Vázquez,Papelería,Paquete de hojas,Teléfono,1522.78,13,,no
+2025-06-07,Puebla Centro,Ana Torres,Muebles,Escritorio ajustable,Tienda,5558.83,1,10,no
+2025-06-08,Angelópolis,Elena Vázquez,Electrónica,Audífonos BT,Tienda,1304.87,1,15,no
+2025-06-09,Angelópolis,Sofía Ramírez,Electrónica,"Tableta 10""",En línea,13840.68,2,15,no
+2025-06-10,Puebla Centro,Jorge Pérez,Electrónica,Laptop Pro 14,Tienda,54050.88,3,15,no
+2025-06-11,Puebla Centro,Luis Medina,Electrónica,"Tableta 10""",Tienda,20177.51,3,10,sí
+2025-06-12,Tehuacán,Elena Vázquez,Muebles,Silla ergonómica,Teléfono,4445.86,2,,no
+2025-06-13,Puebla Centro,Sofía Ramírez,Papelería,Plumas (caja),Tienda,865.52,10,0,no
+2025-06-14,Puebla Centro,Diego Flores,Software,Antivirus anual,En línea,1335.66,2,5,no
+2025-06-15,Angelópolis,Carlos Núñez,Papelería,Plumas (caja),En línea,891.68,10,,no
+2025-06-16,Angelópolis,Marta Ríos,Software,Antivirus anual,En línea,1206.4,2,,no
+2025-06-17,Cholula,Carlos Núñez,Papelería,Paquete de hojas,Tienda,1253.98,11,15,sí
+2025-06-18,Puebla Centro,Marta Ríos,Accesorios,Mouse inalámbrico,Tienda,417.94,1,,no
+2025-06-19,Angelópolis,Diego Flores,Papelería,Plumas (caja),Teléfono,788.6,8,,no
+2025-06-20,Puebla Centro,Elena Vázquez,Papelería,Cuaderno profesional,Tienda,367.01,6,15,no
+2025-06-20,Puebla Centro,Marta Ríos,Software,Antivirus anual,Tienda,668.72,1,5,sí
+2025-06-22,Puebla Centro,Elena Vázquez,Muebles,Silla ergonómica,En línea,6801.17,3,,sí
+2025-06-22,Tehuacán,Jorge Pérez,Muebles,Librero,Tienda,3673.06,2,15,sí
+2025-06-23,Puebla Centro,Jorge Pérez,Accesorios,Base para laptop,Tienda,1258,3,5,sí
+2025-06-23,Atlixco,Sofía Ramírez,Accesorios,Base para laptop,En línea,480.71,1,10,no
+2025-06-24,Angelópolis,Diego Flores,Muebles,Escritorio ajustable,Tienda,17288.12,3,,no
+2025-06-26,Cholula,Sofía Ramírez,Muebles,Escritorio ajustable,Tienda,5604.24,1,,no
+2025-06-27,Puebla Centro,Sofía Ramírez,Electrónica,Laptop Pro 14,Tienda,20080.12,1,,no
+2025-06-28,Atlixco,Elena Vázquez,Muebles,Librero,En línea,3474.18,2,,no
+2025-06-28,Cholula,Marta Ríos,Electrónica,Audífonos BT,En línea,4102.47,3,,no
+2025-06-30,Puebla Centro,Marta Ríos,Papelería,Cuaderno profesional,En línea,497.53,8,15,no
+2025-06-30,Cholula,Elena Vázquez,Accesorios,Base para laptop,En línea,1367.06,3,,no
+2025-07-01,Puebla Centro,Luis Medina,Papelería,Cuaderno profesional,Tienda,798.06,12,15,sí
+2025-07-02,Atlixco,Diego Flores,Papelería,Cuaderno profesional,Teléfono,461.29,6,10,no
+2025-07-02,Puebla Centro,Ana Torres,Electrónica,"Tableta 10""",Tienda,7114.3,1,0,no
+2025-07-03,Tehuacán,Marta Ríos,Papelería,Cuaderno profesional,Tienda,819.68,12,10,no
+2025-07-03,Cholula,Sofía Ramírez,Accesorios,Teclado mecánico,Tienda,4313.57,3,0,sí
+2025-07-04,Puebla Centro,Elena Vázquez,Muebles,Escritorio ajustable,Tienda,6259.12,1,0,no
+2025-07-05,Puebla Centro,Luis Medina,Muebles,Librero,Tienda,2153.56,1,15,no
+2025-07-08,Puebla Centro,Jorge Pérez,Papelería,Plumas (caja),Tienda,210.59,2,0,no
+2025-07-09,Tehuacán,Carlos Núñez,Muebles,Librero,Teléfono,4340.28,2,15,no
+2025-07-10,Puebla Centro,Luis Medina,Accesorios,Teclado mecánico,En línea,3010.41,2,,no
+2025-07-11,Cholula,Carlos Núñez,Electrónica,"Monitor 27""",Tienda,13470.4,3,5,sí
+2025-07-11,Puebla Centro,Diego Flores,Software,Antivirus anual,Tienda,752.3,1,5,no
+2025-07-12,Puebla Centro,Jorge Pérez,Electrónica,"Tableta 10""",Tienda,7654.57,1,15,sí
+2025-07-13,Angelópolis,Diego Flores,Electrónica,Laptop Pro 14,En línea,41708.13,2,,sí
+2025-07-14,Puebla Centro,Jorge Pérez,Electrónica,Audífonos BT,Tienda,1574.93,1,5,no
+2025-07-15,Puebla Centro,Luis Medina,Accesorios,Base para laptop,Tienda,1084.37,2,,no
+2025-07-16,Puebla Centro,Jorge Pérez,Electrónica,Audífonos BT,Tienda,3186.4,2,,no
+2025-07-17,Angelópolis,Luis Medina,Software,Antivirus anual,Tienda,2345.86,3,15,no
+2025-07-18,Angelópolis,Jorge Pérez,Electrónica,Audífonos BT,En línea,4079.15,3,5,sí
+2025-07-19,Tehuacán,Elena Vázquez,Accesorios,Teclado mecánico,Tienda,4429.89,3,5,no
+2025-07-21,Cholula,Elena Vázquez,Electrónica,"Monitor 27""",Tienda,4743.56,1,15,no
+2025-07-21,Atlixco,Ana Torres,Electrónica,Laptop Pro 14,Tienda,20321.76,1,5,no
+2025-07-22,Cholula,Diego Flores,Papelería,Paquete de hojas,En línea,251.83,2,,no
+2025-07-23,Puebla Centro,Luis Medina,Muebles,Escritorio ajustable,Tienda,18387.38,3,5,no
+2025-07-24,Puebla Centro,Diego Flores,Accesorios,Base para laptop,Tienda,1068.7,2,0,no
+2025-07-25,Puebla Centro,Jorge Pérez,Papelería,Paquete de hojas,Tienda,1421.82,11,5,no
+2025-07-25,Atlixco,Carlos Núñez,Papelería,Cuaderno profesional,Tienda,463.02,6,0,no
+2025-07-26,Angelópolis,Carlos Núñez,Electrónica,Laptop Pro 14,Tienda,18900.82,1,5,no
+2025-07-27,Atlixco,Marta Ríos,Muebles,Escritorio ajustable,En línea,5440.72,1,10,no
+2025-07-28,Atlixco,Marta Ríos,Electrónica,Laptop Pro 14,Tienda,21389.63,1,,sí
+2025-07-29,Puebla Centro,Luis Medina,Muebles,Librero,Tienda,2096.38,1,5,sí
+2025-07-29,Puebla Centro,Jorge Pérez,Electrónica,"Tableta 10""",En línea,23985.43,3,10,no
+2025-07-31,Cholula,Luis Medina,Electrónica,Audífonos BT,Tienda,4244.58,3,15,sí
+2025-08-01,Cholula,Elena Vázquez,Electrónica,Audífonos BT,En línea,4863.17,3,,no
+2025-08-01,Cholula,Ana Torres,Software,Licencia ofimática,Tienda,2701.12,1,5,sí
+2025-08-02,Tehuacán,Diego Flores,Papelería,Paquete de hojas,Teléfono,1462.44,10,,no
+2025-08-02,Angelópolis,Ana Torres,Electrónica,"Monitor 27""",En línea,15426.86,3,0,sí
+2025-08-03,Atlixco,Sofía Ramírez,Electrónica,"Tableta 10""",En línea,8300.51,1,,no
+2025-08-05,Cholula,Marta Ríos,Muebles,Escritorio ajustable,En línea,6710.53,1,15,sí
+2025-08-06,Puebla Centro,Jorge Pérez,Papelería,Plumas (caja),Teléfono,1461.97,12,10,sí
+2025-08-07,Angelópolis,Elena Vázquez,Electrónica,Laptop Pro 14,En línea,67644.2,3,15,sí
+2025-08-08,Puebla Centro,Marta Ríos,Accesorios,Mouse inalámbrico,Tienda,481.13,1,0,no
+2025-08-08,Angelópolis,Sofía Ramírez,Muebles,Escritorio ajustable,Teléfono,20294.55,3,15,no
+2025-08-09,Cholula,Carlos Núñez,Electrónica,"Monitor 27""",En línea,10320.1,2,15,sí
+2025-08-09,Puebla Centro,Ana Torres,Muebles,Silla ergonómica,Tienda,5443.79,2,5,no
+2025-08-10,Puebla Centro,Marta Ríos,Accesorios,Base para laptop,Tienda,1141.3,2,10,no
+2025-08-10,Atlixco,Sofía Ramírez,Electrónica,Laptop Pro 14,En línea,66781.78,3,10,no
+2025-08-12,Tehuacán,Sofía Ramírez,Electrónica,Audífonos BT,En línea,1764.93,1,,no
+2025-08-12,Atlixco,Diego Flores,Electrónica,Audífonos BT,Tienda,5334.87,3,,sí
+2025-08-13,Puebla Centro,Sofía Ramírez,Electrónica,Laptop Pro 14,Tienda,42386.36,2,,sí
+2025-08-14,Puebla Centro,Luis Medina,Software,Antivirus anual,Teléfono,1443.9,2,,no
+2025-08-15,Tehuacán,Elena Vázquez,Muebles,Escritorio ajustable,Tienda,6345.76,1,,sí
+2025-08-16,Angelópolis,Luis Medina,Papelería,Cuaderno profesional,En línea,570.51,8,5,no
+2025-08-17,Atlixco,Sofía Ramírez,Muebles,Escritorio ajustable,Tienda,20025.46,3,10,no
+2025-08-18,Angelópolis,Marta Ríos,Muebles,Librero,Tienda,4502.28,2,15,sí
+2025-08-19,Cholula,Elena Vázquez,Muebles,Escritorio ajustable,Tienda,18192.08,3,,sí
+2025-08-19,Puebla Centro,Diego Flores,Accesorios,Teclado mecánico,En línea,3171.74,2,15,sí
+2025-08-22,Cholula,Diego Flores,Accesorios,Mouse inalámbrico,Tienda,428.04,1,,no
+2025-08-23,Puebla Centro,Jorge Pérez,Electrónica,"Tableta 10""",Tienda,7740.47,1,,no
+2025-08-23,Cholula,Ana Torres,Papelería,Cuaderno profesional,Tienda,442.53,6,15,no
+2025-08-24,Tehuacán,Diego Flores,Muebles,Escritorio ajustable,Tienda,12167.83,2,15,no
+2025-08-26,Cholula,Sofía Ramírez,Accesorios,Teclado mecánico,En línea,1541.07,1,,sí
+2025-08-27,Puebla Centro,Luis Medina,Papelería,Cuaderno profesional,Tienda,894.93,12,0,no
+2025-08-28,Puebla Centro,Carlos Núñez,Electrónica,"Monitor 27""",Tienda,14783.98,3,0,no
+2025-08-30,Angelópolis,Jorge Pérez,Papelería,Paquete de hojas,En línea,823.3,6,,no
+2025-08-30,Puebla Centro,Marta Ríos,Papelería,Plumas (caja),En línea,1339.81,12,,no
+2025-09-01,Puebla Centro,Jorge Pérez,Papelería,Paquete de hojas,En línea,692.26,6,0,no
+2025-09-02,Puebla Centro,Diego Flores,Electrónica,Laptop Pro 14,En línea,34316.73,2,,sí
+2025-09-03,Angelópolis,Marta Ríos,Electrónica,"Monitor 27""",Tienda,4224.05,1,15,no
+2025-09-03,Cholula,Carlos Núñez,Papelería,Cuaderno profesional,Teléfono,348.72,5,,sí
+2025-09-07,Angelópolis,Jorge Pérez,Electrónica,Laptop Pro 14,Tienda,33488.62,2,,no
+2025-09-09,Puebla Centro,Luis Medina,Electrónica,Laptop Pro 14,Tienda,17793.17,1,0,no
+2025-09-10,Cholula,Carlos Núñez,Muebles,Escritorio ajustable,Tienda,17591.87,3,0,no
+2025-09-10,Puebla Centro,Sofía Ramírez,Accesorios,Mouse inalámbrico,En línea,1103.43,3,0,no
+2025-09-11,Angelópolis,Carlos Núñez,Electrónica,Audífonos BT,En línea,1382.21,1,10,no
+2025-09-12,Cholula,Diego Flores,Papelería,Plumas (caja),Teléfono,1175.57,12,0,no
+2025-09-12,Cholula,Elena Vázquez,Electrónica,"Monitor 27""",En línea,8441.32,2,0,no
+2025-09-13,Puebla Centro,Elena Vázquez,Accesorios,Mouse inalámbrico,En línea,825.34,2,,sí
+2025-09-15,Puebla Centro,Jorge Pérez,Muebles,Librero,Tienda,3341.37,2,,sí
+2025-09-16,Puebla Centro,Elena Vázquez,Software,Antivirus anual,Tienda,633.12,1,,sí
+2025-09-17,Puebla Centro,Ana Torres,Papelería,Cuaderno profesional,Tienda,377.01,6,0,no
+2025-09-18,Puebla Centro,Carlos Núñez,Muebles,Silla ergonómica,Tienda,2136.66,1,,sí
+2025-09-18,Cholula,Carlos Núñez,Muebles,Escritorio ajustable,Tienda,4940.41,1,15,no
+2025-09-19,Cholula,Carlos Núñez,Electrónica,Audífonos BT,En línea,4091.9,3,0,no
+2025-09-20,Angelópolis,Jorge Pérez,Electrónica,Audífonos BT,Tienda,4153.71,3,10,sí
+2025-09-20,Atlixco,Marta Ríos,Electrónica,"Tableta 10""",Tienda,14223.35,2,,no
+2025-09-21,Angelópolis,Carlos Núñez,Accesorios,Mouse inalámbrico,En línea,1163.56,3,,no
+2025-09-22,Puebla Centro,Jorge Pérez,Papelería,Cuaderno profesional,Teléfono,479.67,7,,no
+2025-09-22,Puebla Centro,Marta Ríos,Electrónica,Audífonos BT,En línea,2859.36,2,5,no
+2025-09-24,Puebla Centro,Luis Medina,Software,Licencia ofimática,Tienda,4239.43,2,0,no
+2025-09-25,Puebla Centro,Elena Vázquez,Accesorios,Teclado mecánico,Tienda,1266.45,1,5,no
+2025-09-25,Atlixco,Carlos Núñez,Muebles,Escritorio ajustable,Tienda,11785.74,2,5,sí
+2025-09-26,Puebla Centro,Carlos Núñez,Electrónica,"Tableta 10""",Tienda,6449.92,1,10,no
+2025-09-27,Angelópolis,Elena Vázquez,Electrónica,"Monitor 27""",Tienda,13423.24,3,,no
+2025-09-28,Tehuacán,Luis Medina,Software,Antivirus anual,Tienda,585.91,1,15,sí
+2025-09-28,Puebla Centro,Diego Flores,Accesorios,Mouse inalámbrico,Teléfono,374.07,1,0,sí
+2025-09-29,Tehuacán,Sofía Ramírez,Papelería,Cuaderno profesional,En línea,494.45,7,15,no
+2025-09-29,Puebla Centro,Ana Torres,Papelería,Cuaderno profesional,Tienda,831.73,12,5,no
+2025-09-30,Atlixco,Marta Ríos,Muebles,Silla ergonómica,Tienda,7379.25,3,,no
+2025-10-01,Angelópolis,Jorge Pérez,Electrónica,"Monitor 27""",Tienda,13100.48,3,0,no
+2025-10-02,Angelópolis,Sofía Ramírez,Muebles,Silla ergonómica,Tienda,2218.78,1,0,sí
+2025-10-02,Cholula,Sofía Ramírez,Accesorios,Base para laptop,Tienda,915.05,2,,sí
+2025-10-03,Angelópolis,Jorge Pérez,Software,Antivirus anual,En línea,1906.47,3,15,no
+2025-10-04,Puebla Centro,Luis Medina,Electrónica,Laptop Pro 14,Tienda,38178.92,2,,no
+2025-10-06,Puebla Centro,Carlos Núñez,Electrónica,Audífonos BT,Tienda,1454.55,1,15,no
+2025-10-07,Tehuacán,Luis Medina,Software,Antivirus anual,Tienda,701.75,1,,no
+2025-10-08,Atlixco,Jorge Pérez,Electrónica,"Tableta 10""",Tienda,14904.57,2,0,no
+2025-10-09,Cholula,Carlos Núñez,Electrónica,Laptop Pro 14,Teléfono,20573.15,1,5,no
+2025-10-10,Tehuacán,Marta Ríos,Electrónica,Audífonos BT,Teléfono,1432.49,1,,sí
+2025-10-12,Puebla Centro,Sofía Ramírez,Muebles,Librero,Tienda,1803.54,1,10,no
+2025-10-14,Angelópolis,Sofía Ramírez,Accesorios,Mouse inalámbrico,Tienda,394.87,1,0,no
+2025-10-15,Puebla Centro,Jorge Pérez,Electrónica,"Tableta 10""",Tienda,7204.22,1,0,no
+2025-10-16,Puebla Centro,Carlos Núñez,Electrónica,"Tableta 10""",Tienda,6861.05,1,5,sí
+2025-10-16,Atlixco,Luis Medina,Software,Licencia ofimática,En línea,2217.25,1,15,no
+2025-10-19,Cholula,Elena Vázquez,Electrónica,Laptop Pro 14,En línea,59958.62,3,5,no
+2025-10-20,Puebla Centro,Luis Medina,Accesorios,Mouse inalámbrico,En línea,775.99,2,0,no
+2025-10-20,Angelópolis,Elena Vázquez,Software,Antivirus anual,Tienda,1466.71,2,15,sí
+2025-10-21,Cholula,Luis Medina,Electrónica,"Monitor 27""",Tienda,14495.05,3,5,no
+2025-10-22,Puebla Centro,Sofía Ramírez,Electrónica,Laptop Pro 14,Tienda,18202.68,1,5,no
+2025-10-23,Angelópolis,Marta Ríos,Software,Antivirus anual,En línea,1418.87,2,10,no
+2025-10-24,Cholula,Ana Torres,Papelería,Cuaderno profesional,En línea,750.17,12,10,no
+2025-10-25,Puebla Centro,Carlos Núñez,Accesorios,Mouse inalámbrico,Tienda,874.62,2,5,no
+2025-10-26,Atlixco,Ana Torres,Electrónica,"Tableta 10""",Tienda,13310.04,2,,sí
+2025-10-27,Cholula,Carlos Núñez,Electrónica,Audífonos BT,Tienda,2671.92,2,,no
+2025-10-28,Angelópolis,Diego Flores,Accesorios,Base para laptop,En línea,508.78,1,,no
+2025-10-29,Puebla Centro,Jorge Pérez,Papelería,Cuaderno profesional,Tienda,622.65,9,5,no
+2025-10-30,Puebla Centro,Carlos Núñez,Accesorios,Mouse inalámbrico,En línea,364.17,1,15,no
+2025-10-30,Cholula,Elena Vázquez,Muebles,Silla ergonómica,Tienda,2492.19,1,0,sí
+2025-11-01,Cholula,Marta Ríos,Software,Antivirus anual,Teléfono,2481.83,3,0,no
+2025-11-02,Tehuacán,Sofía Ramírez,Accesorios,Teclado mecánico,Tienda,4753.39,3,5,no
+2025-11-02,Cholula,Elena Vázquez,Software,Licencia ofimática,Tienda,8410.06,3,15,no
+2025-11-03,Cholula,Luis Medina,Electrónica,"Tableta 10""",Tienda,26003.9,3,5,sí
+2025-11-03,Angelópolis,Carlos Núñez,Accesorios,Mouse inalámbrico,Tienda,1061.18,2,,no
+2025-11-06,Puebla Centro,Jorge Pérez,Accesorios,Base para laptop,Tienda,1162.3,2,10,sí
+2025-11-06,Angelópolis,Jorge Pérez,Electrónica,"Tableta 10""",En línea,19282.38,2,10,no
+2025-11-07,Tehuacán,Elena Vázquez,Accesorios,Teclado mecánico,Tienda,3187.42,2,10,sí
+2025-11-08,Puebla Centro,Luis Medina,Muebles,Escritorio ajustable,En línea,22034.33,3,5,sí
+2025-11-09,Puebla Centro,Luis Medina,Electrónica,"Monitor 27""",Tienda,12196.69,2,15,no
+2025-11-12,Puebla Centro,Marta Ríos,Muebles,Escritorio ajustable,Tienda,13944.65,2,15,no
+2025-11-14,Puebla Centro,Ana Torres,Electrónica,Audífonos BT,En línea,3737.58,2,,no
+2025-11-14,Puebla Centro,Ana Torres,Electrónica,"Monitor 27""",Tienda,5320.1,1,15,no
+2025-11-15,Atlixco,Diego Flores,Muebles,Escritorio ajustable,En línea,7298.25,1,0,no
+2025-11-15,Cholula,Diego Flores,Muebles,Librero,En línea,2320.06,1,10,no
+2025-11-16,Cholula,Carlos Núñez,Papelería,Plumas (caja),En línea,925.98,7,0,sí
+2025-11-17,Puebla Centro,Sofía Ramírez,Accesorios,Mouse inalámbrico,Tienda,936.61,2,,no
+2025-11-18,Tehuacán,Ana Torres,Electrónica,Laptop Pro 14,Teléfono,48112.38,2,,no
+2025-11-20,Puebla Centro,Ana Torres,Accesorios,Teclado mecánico,En línea,5112.75,3,0,no
+2025-11-20,Atlixco,Jorge Pérez,Accesorios,Teclado mecánico,Tienda,3420.8,2,0,sí
+2025-11-21,Tehuacán,Jorge Pérez,Accesorios,Base para laptop,En línea,1967.08,3,5,no
+2025-11-21,Tehuacán,Jorge Pérez,Electrónica,"Monitor 27""",Tienda,5426.44,1,,no
+2025-11-22,Cholula,Sofía Ramírez,Papelería,Cuaderno profesional,Teléfono,335.91,4,,no
+2025-11-23,Puebla Centro,Ana Torres,Muebles,Librero,Tienda,2500.35,1,5,sí
+2025-11-25,Tehuacán,Ana Torres,Electrónica,Laptop Pro 14,Tienda,24348.03,1,0,sí
+2025-11-25,Cholula,Sofía Ramírez,Software,Licencia ofimática,En línea,2590.82,1,10,no
+2025-11-26,Tehuacán,Marta Ríos,Electrónica,Laptop Pro 14,En línea,78579.84,3,5,no
+2025-11-27,Puebla Centro,Luis Medina,Papelería,Cuaderno profesional,En línea,408.71,5,5,no
+2025-11-28,Puebla Centro,Diego Flores,Electrónica,"Monitor 27""",Teléfono,6156.45,1,0,no
+2025-11-29,Puebla Centro,Diego Flores,Accesorios,Teclado mecánico,Tienda,3295.36,2,15,no
+2025-11-30,Tehuacán,Carlos Núñez,Papelería,Cuaderno profesional,En línea,1088.78,13,15,no
+2025-12-01,Cholula,Sofía Ramírez,Electrónica,"Monitor 27""",En línea,6247.93,1,5,no
+2025-12-01,Puebla Centro,Carlos Núñez,Muebles,Escritorio ajustable,En línea,8050.68,1,,no
+2025-12-02,Puebla Centro,Sofía Ramírez,Papelería,Plumas (caja),Tienda,1917.85,12,10,no
+2025-12-03,Puebla Centro,Marta Ríos,Electrónica,Audífonos BT,En línea,6165.74,3,,no
+2025-12-04,Puebla Centro,Marta Ríos,Muebles,Silla ergonómica,Teléfono,4000.43,1,5,no
+2025-12-05,Atlixco,Jorge Pérez,Electrónica,Audífonos BT,Tienda,4070.29,2,15,no
+2025-12-08,Puebla Centro,Luis Medina,Papelería,Plumas (caja),Tienda,1985.27,12,,no
+2025-12-09,Angelópolis,Marta Ríos,Software,Licencia ofimática,Tienda,11023.23,3,0,sí
+2025-12-11,Atlixco,Carlos Núñez,Muebles,Silla ergonómica,Tienda,10830.08,3,10,no
+2025-12-12,Puebla Centro,Marta Ríos,Accesorios,Teclado mecánico,Tienda,4323.01,2,5,no
+2025-12-12,Puebla Centro,Luis Medina,Electrónica,"Tableta 10""",Tienda,11572.96,1,,no
+2025-12-13,Angelópolis,Jorge Pérez,Muebles,Silla ergonómica,Tienda,10339.5,3,,no
+2025-12-13,Puebla Centro,Sofía Ramírez,Software,Antivirus anual,Teléfono,1141.5,1,15,no
+2025-12-15,Cholula,Carlos Núñez,Accesorios,Mouse inalámbrico,Teléfono,1886.96,3,0,no
+2025-12-18,Angelópolis,Ana Torres,Muebles,Silla ergonómica,Teléfono,3432.8,1,15,sí
+2025-12-19,Puebla Centro,Sofía Ramírez,Electrónica,"Monitor 27""",Tienda,13328.18,2,0,sí
+2025-12-19,Angelópolis,Jorge Pérez,Muebles,Escritorio ajustable,En línea,17069.1,2,,no
+2025-12-20,Puebla Centro,Ana Torres,Muebles,Librero,Tienda,2837.61,1,,sí
+2025-12-21,Puebla Centro,Diego Flores,Papelería,Plumas (caja),Tienda,1146.24,7,5,no
+2025-12-22,Puebla Centro,Elena Vázquez,Software,Antivirus anual,Tienda,1137.94,1,0,sí
+2025-12-23,Puebla Centro,Diego Flores,Accesorios,Base para laptop,En línea,2033.21,3,15,no
+2025-12-24,Atlixco,Jorge Pérez,Muebles,Silla ergonómica,En línea,3697.53,1,,no
+2025-12-26,Cholula,Luis Medina,Accesorios,Teclado mecánico,En línea,4287.04,2,,no
+2025-12-29,Atlixco,Diego Flores,Muebles,Librero,En línea,9343.77,3,,sí

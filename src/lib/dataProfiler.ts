@@ -1,14 +1,14 @@
+import { parseNumber } from "./parseValue";
 import type { ColumnProfile, ColumnType, DatasetProfile, DatasetRow } from "./types";
 
 const SAMPLE_SIZE = 200;
 const SAMPLE_VALUES_SHOWN = 5;
 
-const BOOLEAN_VALUES = new Set(["true", "false", "sí", "si", "no", "yes", "verdadero", "falso", "1", "0"]);
+// "1"/"0" are left out on purpose: a 0/1 column is more useful as a number.
+const BOOLEAN_VALUES = new Set(["true", "false", "sí", "si", "no", "yes", "verdadero", "falso"]);
 
 function isNumeric(value: string): boolean {
-  const trimmed = value.trim().replace(/,/g, "");
-  if (trimmed === "") return false;
-  return !Number.isNaN(Number(trimmed));
+  return parseNumber(value) !== null;
 }
 
 const DATE_PATTERNS = [

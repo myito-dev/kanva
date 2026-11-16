@@ -1,15 +1,21 @@
-import type { ChartSuggestion, ColumnProfile, DatasetProfile, DatasetRow, Insight, Kpi, LocalAnalysis } from "./types";
+import { parseNumber, toIsoDate } from "./parseValue";
+import type {
+  Aggregation,
+  ChartSpec,
+  ChartSuggestion,
+  ColumnProfile,
+  DatasetAnalysis,
+  DatasetProfile,
+  DatasetRow,
+  Insight,
+  Kpi,
+  KpiSpec,
+} from "./types";
 
 const MAX_BAR_CATEGORIES = 8;
 const MAX_TIME_POINTS = 24;
-const MAX_CHARTS = 4;
-
-function toNumber(value: string): number | null {
-  const cleaned = value.trim().replace(/,/g, "");
-  if (cleaned === "") return null;
-  const n = Number(cleaned);
-  return Number.isNaN(n) ? null : n;
-}
+export const MAX_CHARTS = 4;
+export const MAX_KPIS = 4;
 
 function formatNumber(n: number): string {
   return new Intl.NumberFormat("es-MX", { maximumFractionDigits: 2 }).format(n);
@@ -19,21 +25,139 @@ function numericColumns(columns: ColumnProfile[]): ColumnProfile[] {
   return columns.filter((c) => c.type === "number");
 }
 
-function buildKpis(profile: DatasetProfile, rows: DatasetRow[]): Kpi[] {
-  const kpis: Kpi[] = [{ label: "Filas analizadas", value: formatNumber(profile.rowCount) }];
-
-  for (const col of numericColumns(profile.columns).slice(0, 2)) {
-    const values = rows.map((r) => toNumber(r[col.name] ?? "")).filter((v): v is number => v !== null);
-    if (values.length === 0) continue;
-    const sum = values.reduce((s, v) => s + v, 0);
-    kpis.push({ label: `Total ${col.name}`, value: formatNumber(sum) });
-    kpis.push({ label: `Promedio ${col.name}`, value: formatNumber(sum / values.length) });
-  }
-
-  return kpis.slice(0, 4);
+function aggregate(values: number[], aggregation: Aggregation): number {
+  if (aggregation === "count") return values.length;
+  if (values.length === 0) return 0;
+  if (aggregation === "min") return Math.min(...values);
+  if (aggregation === "max") return Math.max(...values);
+  const sum = values.reduce((s, v) => s + v, 0);
+  return aggregation === "avg" ? sum / values.length : sum;
 }
 
-function buildInsights(profile: DatasetProfile, rows: DatasetRow[]): Insight[] {
+/** Numbers in `column` for every row; with no column, a 1 per row (so
+ * "count" counts rows). */
+function columnValues(rows: DatasetRow[], column: string | null): number[] {
+  if (!column) return rows.map(() => 1);
+  return rows.map((r) => parseNumber(r[column] ?? "")).filter((v): v is number => v !== null);
+}
+
+/** Returns null when the spec references a column the dataset doesn't have
+ * or can't aggregate numerically. */
+export function computeKpi(profile: DatasetProfile, rows: DatasetRow[], spec: KpiSpec): Kpi | null {
+  if (spec.column) {
+    const col = profile.columns.find((c) => c.name === spec.column);
+    if (!col || (col.type !== "number" && spec.aggregation !== "count")) return null;
+  }
+  const values = columnValues(rows, spec.column);
+  if (values.length === 0) return null;
+  return { label: spec.label, value: formatNumber(aggregate(values, spec.aggregation)) };
+}
+
+function groupValues(rows: DatasetRow[], keyOf: (row: DatasetRow) => string | null, yCol: string | null) {
+  const groups = new Map<string, number[]>();
+  for (const row of rows) {
+    const key = keyOf(row);
+    if (!key) continue;
+    const n = yCol ? parseNumber(row[yCol] ?? "") : 1;
+    if (n === null) continue;
+    const list = groups.get(key) ?? [];
+    list.push(n);
+    groups.set(key, list);
+  }
+  return groups;
+}
+
+function aggregateByCategory(rows: DatasetRow[], xCol: string, yCol: string | null, aggregation: Aggregation): ChartSuggestion["points"] {
+  const groups = groupValues(rows, (row) => (row[xCol] ?? "").trim() || null, yCol);
+  const entries = Array.from(groups.entries())
+    .map(([label, values]) => ({ label, value: aggregate(values, aggregation) }))
+    .sort((a, b) => b.value - a.value);
+
+  if (entries.length <= MAX_BAR_CATEGORIES) return entries;
+
+  // Only additive aggregations can fold the tail into "Otros"; for avg/min/max
+  // a combined bar would be meaningless, so the tail is just left out.
+  if (aggregation !== "sum" && aggregation !== "count") return entries.slice(0, MAX_BAR_CATEGORIES);
+
+  const top = entries.slice(0, MAX_BAR_CATEGORIES - 1);
+  const otrosValue = entries.slice(MAX_BAR_CATEGORIES - 1).reduce((s, e) => s + e.value, 0);
+  return [...top, { label: "Otros", value: otrosValue }];
+}
+
+function aggregateByDate(rows: DatasetRow[], dateCol: string, yCol: string | null, aggregation: Aggregation): ChartSuggestion["points"] {
+  const toPoints = (groups: Map<string, number[]>) =>
+    Array.from(groups.entries())
+      .map(([label, values]) => ({ label, value: aggregate(values, aggregation) }))
+      .sort((a, b) => a.label.localeCompare(b.label));
+
+  // Dates are normalized to YYYY-MM-DD so they sort chronologically and the
+  // monthly roll-up below can just take the YYYY-MM prefix.
+  const daily = toPoints(groupValues(rows, (row) => toIsoDate(row[dateCol] ?? ""), yCol));
+  if (daily.length <= MAX_TIME_POINTS) return daily;
+  return toPoints(groupValues(rows, (row) => toIsoDate(row[dateCol] ?? "")?.slice(0, 7) ?? null, yCol));
+}
+
+/** Date x-axes become line charts, anything else a bar chart. Returns null
+ * for specs that reference unknown or unsuitable columns, or that produce
+ * fewer than two points. */
+export function computeChart(profile: DatasetProfile, rows: DatasetRow[], spec: ChartSpec): ChartSuggestion | null {
+  const xCol = profile.columns.find((c) => c.name === spec.x);
+  if (!xCol || xCol.type === "number") return null;
+  if (spec.y && profile.columns.find((c) => c.name === spec.y)?.type !== "number") return null;
+
+  const aggregation = spec.y ? spec.aggregation : "count";
+  const isTime = xCol.type === "date";
+  const points = isTime
+    ? aggregateByDate(rows, xCol.name, spec.y, aggregation)
+    : aggregateByCategory(rows, xCol.name, spec.y, aggregation);
+  if (points.length < 2) return null;
+
+  return {
+    id: `${isTime ? "line" : "bar"}-${xCol.name}-${spec.y ?? "count"}-${aggregation}`,
+    kind: isTime ? "line" : "bar",
+    title: spec.title,
+    aggregation,
+    points,
+  };
+}
+
+function localKpiSpecs(profile: DatasetProfile): KpiSpec[] {
+  const specs: KpiSpec[] = [{ label: "Filas analizadas", column: null, aggregation: "count" }];
+  for (const col of numericColumns(profile.columns).slice(0, 2)) {
+    specs.push({ label: `Total ${col.name}`, column: col.name, aggregation: "sum" });
+    specs.push({ label: `Promedio ${col.name}`, column: col.name, aggregation: "avg" });
+  }
+  return specs;
+}
+
+function localChartSpecs(profile: DatasetProfile): ChartSpec[] {
+  const specs: ChartSpec[] = [];
+  const primaryNumeric = numericColumns(profile.columns)[0]?.name ?? null;
+
+  const dateCol = profile.columns.find((c) => c.type === "date");
+  if (dateCol && primaryNumeric) {
+    specs.push({
+      title: `${primaryNumeric} a lo largo del tiempo (${dateCol.name})`,
+      x: dateCol.name,
+      y: primaryNumeric,
+      aggregation: "sum",
+    });
+  }
+
+  const categoryColumns = profile.columns.filter((c) => c.type === "category" && c.uniqueValues > 1 && c.uniqueValues <= 40);
+  for (const col of categoryColumns) {
+    specs.push({
+      title: primaryNumeric ? `${primaryNumeric} por ${col.name}` : `Registros por ${col.name}`,
+      x: col.name,
+      y: primaryNumeric,
+      aggregation: primaryNumeric ? "sum" : "count",
+    });
+  }
+
+  return specs;
+}
+
+export function buildLocalInsights(profile: DatasetProfile, rows: DatasetRow[]): Insight[] {
   const insights: Insight[] = [];
 
   const nullHeavy = profile.columns.filter((c) => c.nullRatio > 0.2).sort((a, b) => b.nullRatio - a.nullRatio);
@@ -71,99 +195,27 @@ function buildInsights(profile: DatasetProfile, rows: DatasetRow[]): Insight[] {
   return insights.slice(0, 4);
 }
 
-function aggregateByCategory(rows: DatasetRow[], categoryCol: string, numericCol: string | null): ChartSuggestion["points"] {
-  const sums = new Map<string, { sum: number; count: number }>();
-  for (const row of rows) {
-    const key = (row[categoryCol] ?? "").trim();
-    if (key === "") continue;
-    const entry = sums.get(key) ?? { sum: 0, count: 0 };
-    const n = numericCol ? toNumber(row[numericCol] ?? "") : 1;
-    entry.sum += n ?? 0;
-    entry.count += 1;
-    sums.set(key, entry);
-  }
-
-  const entries = Array.from(sums.entries())
-    .map(([label, { sum }]) => ({ label, value: sum }))
-    .sort((a, b) => b.value - a.value);
-
-  if (entries.length <= MAX_BAR_CATEGORIES) return entries;
-
-  const top = entries.slice(0, MAX_BAR_CATEGORIES - 1);
-  const rest = entries.slice(MAX_BAR_CATEGORIES - 1);
-  const otrosValue = rest.reduce((s, e) => s + e.value, 0);
-  return [...top, { label: "Otros", value: otrosValue }];
+export function computeKpis(profile: DatasetProfile, rows: DatasetRow[], specs: KpiSpec[]): Kpi[] {
+  return specs
+    .map((spec) => computeKpi(profile, rows, spec))
+    .filter((k): k is Kpi => k !== null)
+    .slice(0, MAX_KPIS);
 }
 
-function aggregateByDate(rows: DatasetRow[], dateCol: string, numericCol: string): ChartSuggestion["points"] {
-  const dailySums = new Map<string, number>();
-  for (const row of rows) {
-    const key = (row[dateCol] ?? "").trim();
-    const n = toNumber(row[numericCol] ?? "");
-    if (key === "" || n === null) continue;
-    dailySums.set(key, (dailySums.get(key) ?? 0) + n);
-  }
-
-  let entries = Array.from(dailySums.entries())
-    .map(([label, value]) => ({ label, value }))
-    .sort((a, b) => a.label.localeCompare(b.label));
-
-  if (entries.length > MAX_TIME_POINTS) {
-    const monthlySums = new Map<string, number>();
-    for (const row of rows) {
-      const key = (row[dateCol] ?? "").trim().slice(0, 7); // YYYY-MM
-      const n = toNumber(row[numericCol] ?? "");
-      if (key === "" || n === null) continue;
-      monthlySums.set(key, (monthlySums.get(key) ?? 0) + n);
-    }
-    entries = Array.from(monthlySums.entries())
-      .map(([label, value]) => ({ label, value }))
-      .sort((a, b) => a.label.localeCompare(b.label));
-  }
-
-  return entries;
-}
-
-function buildCharts(profile: DatasetProfile, rows: DatasetRow[]): ChartSuggestion[] {
+export function computeCharts(profile: DatasetProfile, rows: DatasetRow[], specs: ChartSpec[]): ChartSuggestion[] {
   const charts: ChartSuggestion[] = [];
-  const numeric = numericColumns(profile.columns);
-  const primaryNumeric = numeric[0]?.name ?? null;
-
-  const dateCol = profile.columns.find((c) => c.type === "date");
-  if (dateCol && primaryNumeric) {
-    const points = aggregateByDate(rows, dateCol.name, primaryNumeric);
-    if (points.length >= 2) {
-      charts.push({
-        id: `line-${dateCol.name}`,
-        kind: "line",
-        title: `${primaryNumeric} a lo largo del tiempo (${dateCol.name})`,
-        aggregation: "sum",
-        points,
-      });
-    }
-  }
-
-  const categoryColumns = profile.columns.filter((c) => c.type === "category" && c.uniqueValues > 1 && c.uniqueValues <= 40);
-  for (const col of categoryColumns) {
+  for (const spec of specs) {
     if (charts.length >= MAX_CHARTS) break;
-    const points = aggregateByCategory(rows, col.name, primaryNumeric);
-    if (points.length < 2) continue;
-    charts.push({
-      id: `bar-${col.name}`,
-      kind: "bar",
-      title: primaryNumeric ? `${primaryNumeric} por ${col.name}` : `Registros por ${col.name}`,
-      aggregation: primaryNumeric ? "sum" : "count",
-      points,
-    });
+    const chart = computeChart(profile, rows, spec);
+    if (chart && !charts.some((c) => c.id === chart.id)) charts.push(chart);
   }
-
-  return charts.slice(0, MAX_CHARTS);
+  return charts;
 }
 
-export function analyzeLocal(profile: DatasetProfile, rows: DatasetRow[]): LocalAnalysis {
+export function analyzeLocal(profile: DatasetProfile, rows: DatasetRow[]): DatasetAnalysis {
   return {
-    kpis: buildKpis(profile, rows),
-    insights: buildInsights(profile, rows),
-    charts: buildCharts(profile, rows),
+    kpis: computeKpis(profile, rows, localKpiSpecs(profile)),
+    insights: buildLocalInsights(profile, rows),
+    charts: computeCharts(profile, rows, localChartSpecs(profile)),
   };
 }

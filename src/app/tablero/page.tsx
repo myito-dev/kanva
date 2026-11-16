@@ -13,6 +13,7 @@ const STORAGE_KEY = "kanva:board";
 const DEFAULT_BACKGROUND = "#f7f7fbff";
 const DEFAULT_SIZE = { kpi: { w: 220, h: 110 }, chart: { w: 420, h: 280 }, text: { w: 260, h: 100 } };
 const GRID_STEP = 24;
+const SAVE_DELAY_MS = 300;
 
 function nextPosition(count: number) {
   const step = 32;
@@ -32,7 +33,7 @@ function loadBoard(): BoardState {
   if (!raw) return { background: DEFAULT_BACKGROUND, widgets: [] };
   try {
     const parsed = JSON.parse(raw) as Partial<BoardState>;
-    return { background: parsed.background ?? DEFAULT_BACKGROUND, widgets: parsed.widgets ?? [] };
+    return { datasetId: parsed.datasetId, background: parsed.background ?? DEFAULT_BACKGROUND, widgets: parsed.widgets ?? [] };
   } catch {
     return { background: DEFAULT_BACKGROUND, widgets: [] };
   }
@@ -73,9 +74,29 @@ export default function TableroPage() {
   const { background, widgets } = board;
   const selected = widgets.find((w) => w.id === selectedId) ?? null;
 
+  // A newly analyzed file starts an empty board: widgets embed a snapshot of
+  // the old dataset's numbers. Adjusting state during render (instead of in an
+  // effect) avoids painting the stale widgets for a frame.
+  if (result && board.datasetId !== result.id) {
+    setBoard((prev) => ({ ...prev, datasetId: result.id, widgets: [] }));
+    setSelectedId(null);
+  }
+
+  // Dragging updates the board on every pointer move; saving is debounced so
+  // localStorage is written once the gesture settles.
   useEffect(() => {
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(board));
+    const timer = window.setTimeout(() => {
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(board));
+    }, SAVE_DELAY_MS);
+    return () => window.clearTimeout(timer);
   }, [board]);
+
+  // Flush the pending save when leaving the page mid-debounce.
+  const latestBoard = useRef(board);
+  useEffect(() => {
+    latestBoard.current = board;
+  }, [board]);
+  useEffect(() => () => window.localStorage.setItem(STORAGE_KEY, JSON.stringify(latestBoard.current)), []);
 
   useEffect(() => {
     if (!addMenuOpen) return;

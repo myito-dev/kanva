@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { analyzeDataset } from "@/lib/actions";
 import { AnalysisCharts } from "@/components/AnalysisCharts";
 import { useDataset } from "@/lib/datasetStore";
-import type { InsightTone } from "@/lib/types";
+import type { AnalysisMode, AnalysisSource, InsightTone } from "@/lib/types";
 
 const INSIGHT_TONE_CLASS: Record<InsightTone, string> = {
   info: "bg-ink-muted",
@@ -20,6 +20,17 @@ const TYPE_LABELS: Record<string, string> = {
   category: "Categoría",
   text: "Texto",
 };
+
+const SOURCE_LABELS: Record<AnalysisSource, string> = {
+  ai: "Análisis con IA",
+  local: "Análisis local",
+  local_fallback: "Análisis local (respaldo)",
+};
+
+const MODE_OPTIONS: { value: AnalysisMode; label: string }[] = [
+  { value: "ai", label: "Con IA" },
+  { value: "local", label: "Local" },
+];
 
 type TileTone = "mint" | "pink" | "violet" | "yellow";
 
@@ -86,11 +97,13 @@ export default function HomePage() {
   const [error, setError] = useState<string | null>(null);
   const [pending, startTransition] = useTransition();
   const [dragActive, setDragActive] = useState(false);
+  const [mode, setMode] = useState<AnalysisMode>("ai");
 
   function submitFile(file: File) {
     setError(null);
     const formData = new FormData();
     formData.set("dataset", file);
+    formData.set("mode", mode);
     startTransition(async () => {
       const response = await analyzeDataset(formData);
       if ("error" in response) {
@@ -129,6 +142,31 @@ export default function HomePage() {
         <p className="text-xs font-semibold uppercase tracking-wide text-accent">Kanva</p>
         <h1 className="text-2xl font-bold tracking-tight text-ink">Análisis</h1>
         <p className="text-sm text-ink-secondary">Sube un archivo CSV o Excel para obtener un perfil y análisis de tus datos.</p>
+      </div>
+
+      <div className="flex flex-wrap items-center gap-3">
+        <span className="text-xs font-semibold uppercase tracking-wide text-ink-muted">Modo de análisis</span>
+        <div role="radiogroup" aria-label="Modo de análisis" className="flex items-center gap-1 rounded-full border border-hairline bg-surface p-1">
+          {MODE_OPTIONS.map((option) => (
+            <button
+              key={option.value}
+              role="radio"
+              aria-checked={mode === option.value}
+              onClick={() => setMode(option.value)}
+              disabled={pending}
+              className={`pill px-3 py-1 text-xs font-semibold ${
+                mode === option.value ? "bg-accent text-accent-ink" : "text-ink-secondary hover:text-accent"
+              }`}
+            >
+              {option.label}
+            </button>
+          ))}
+        </div>
+        <span className="text-xs text-ink-muted">
+          {mode === "ai"
+            ? "Gemini sugiere indicadores, gráficas y hallazgos; si no está disponible se usa el modo local."
+            : "Reglas internas, sin servicios externos."}
+        </span>
       </div>
 
       <AnimatePresence>
@@ -193,6 +231,9 @@ export default function HomePage() {
               <div>
                 <p className="text-sm text-ink-muted">Archivo</p>
                 <p className="font-semibold text-ink">{result.fileName}</p>
+                <span className="pill mt-1 inline-block bg-accent/10 px-2 py-0.5 text-xs font-medium text-accent">
+                  {SOURCE_LABELS[result.analysisSource ?? "local"]}
+                </span>
               </div>
               <label
                 htmlFor="dataset-input"
@@ -212,6 +253,17 @@ export default function HomePage() {
                 <StatTile tone="yellow" icon={<CheckIcon />} label="Calidad promedio" value={`${qualityPct}%`} />
               </div>
             </div>
+
+            {result.aiWarning && (
+              <div className="card border border-warning/40 bg-warning/10 p-4 text-sm text-ink">{result.aiWarning}</div>
+            )}
+
+            {result.analysis.summary && (
+              <div className="card space-y-1 p-5">
+                <p className="text-sm text-ink-muted">Resumen generado con IA</p>
+                <p className="text-sm text-ink">{result.analysis.summary}</p>
+              </div>
+            )}
 
             {(result.analysis.kpis.length > 0 || result.analysis.insights.length > 0) && (
               <div id="hallazgos" className="grid scroll-mt-28 grid-cols-1 gap-4 lg:grid-cols-3">
