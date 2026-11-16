@@ -7,6 +7,8 @@ const GEMINI_ENDPOINT = "https://generativelanguage.googleapis.com/v1beta/models
 // Alias that Google keeps pointed at a current Flash model, so the app doesn't
 // break when a pinned version is retired. Override with GEMINI_MODEL.
 const DEFAULT_MODEL = "gemini-flash-latest";
+// Lighter model tried when the main one is overloaded (503) or erroring (5xx).
+const BACKUP_MODEL = "gemini-flash-lite-latest";
 const REQUEST_TIMEOUT_MS = 30_000;
 
 /** Thrown when the AI mode can't run; the message is shown to the user and
@@ -39,6 +41,7 @@ Reglas: usa solo nombres de columna que aparezcan en el perfil, escritos exactam
 function friendlyHttpError(status: number): string {
   if (status === 429) return "Se alcanzó el límite de uso gratuito de Gemini. Se aplicó el análisis local.";
   if (status === 400 || status === 401 || status === 403) return "La clave de Gemini no es válida o no tiene permisos. Se aplicó el análisis local.";
+  if (status === 503) return "Gemini está saturado en este momento. Se aplicó el análisis local.";
   return `Gemini respondió con un error (${status}). Se aplicó el análisis local.`;
 }
 
@@ -47,25 +50,29 @@ async function callGemini(profile: DatasetProfile): Promise<unknown> {
   if (!apiKey) {
     throw new AiUnavailableError("El modo IA no está configurado (falta GEMINI_API_KEY). Se aplicó el análisis local.");
   }
-  const model = process.env.GEMINI_MODEL || DEFAULT_MODEL;
+  const primaryModel = process.env.GEMINI_MODEL || DEFAULT_MODEL;
+  const models = primaryModel === BACKUP_MODEL ? [primaryModel] : [primaryModel, BACKUP_MODEL];
 
-  let response: Response;
-  try {
-    response = await fetch(`${GEMINI_ENDPOINT}/${model}:generateContent`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json", "x-goog-api-key": apiKey },
-      body: JSON.stringify({
-        systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
-        contents: [{ role: "user", parts: [{ text: `Perfil del conjunto de datos:\n${JSON.stringify(profile)}` }] }],
-        generationConfig: { temperature: 0.2, responseMimeType: "application/json" },
-      }),
-      signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
-    });
-  } catch {
-    throw new AiUnavailableError("No se pudo conectar con Gemini. Se aplicó el análisis local.");
+  let response: Response | null = null;
+  for (const model of models) {
+    try {
+      response = await fetch(`${GEMINI_ENDPOINT}/${model}:generateContent`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "x-goog-api-key": apiKey },
+        body: JSON.stringify({
+          systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
+          contents: [{ role: "user", parts: [{ text: `Perfil del conjunto de datos:\n${JSON.stringify(profile)}` }] }],
+          generationConfig: { temperature: 0.2, responseMimeType: "application/json" },
+        }),
+        signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
+      });
+    } catch {
+      throw new AiUnavailableError("No se pudo conectar con Gemini. Se aplicó el análisis local.");
+    }
+    if (response.status < 500) break;
   }
 
-  if (!response.ok) throw new AiUnavailableError(friendlyHttpError(response.status));
+  if (!response || !response.ok) throw new AiUnavailableError(friendlyHttpError(response?.status ?? 0));
 
   const data = await response.json();
   const text: unknown = data?.candidates?.[0]?.content?.parts?.[0]?.text;

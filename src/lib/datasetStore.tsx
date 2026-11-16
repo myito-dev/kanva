@@ -3,23 +3,24 @@
 import { useSyncExternalStore } from "react";
 import type { AnalyzeResult } from "./types";
 
-const STORAGE_KEY = "kanva:dataset";
+// The analysis lives only in memory: it survives client-side navigation
+// between Análisis and Tablero, but a page reload starts over at the upload
+// screen. Earlier versions persisted it under this key, so drop any leftover.
+const LEGACY_STORAGE_KEY = "kanva:dataset";
 const listeners = new Set<() => void>();
 
-let cachedRaw: string | null | undefined;
-let cachedValue: AnalyzeResult | null = null;
+let current: AnalyzeResult | null = null;
+
+if (typeof window !== "undefined") {
+  try {
+    window.localStorage.removeItem(LEGACY_STORAGE_KEY);
+  } catch {
+    // Storage unavailable; nothing to clean up.
+  }
+}
 
 function readSnapshot(): AnalyzeResult | null {
-  const raw = window.localStorage.getItem(STORAGE_KEY);
-  if (raw !== cachedRaw) {
-    cachedRaw = raw;
-    try {
-      cachedValue = raw ? (JSON.parse(raw) as AnalyzeResult) : null;
-    } catch {
-      cachedValue = null;
-    }
-  }
-  return cachedValue;
+  return current;
 }
 
 function readServerSnapshot(): AnalyzeResult | null {
@@ -28,30 +29,14 @@ function readServerSnapshot(): AnalyzeResult | null {
 
 function subscribe(callback: () => void) {
   listeners.add(callback);
-  window.addEventListener("storage", callback);
   return () => {
     listeners.delete(callback);
-    window.removeEventListener("storage", callback);
   };
 }
 
-function emitChange() {
-  for (const listener of listeners) listener();
-}
-
 export function setDatasetResult(next: AnalyzeResult | null) {
-  if (next) {
-    try {
-      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
-    } catch {
-      // Storage full (very wide datasets): keep only the rows the preview
-      // table actually shows.
-      window.localStorage.setItem(STORAGE_KEY, JSON.stringify({ ...next, previewRows: next.previewRows.slice(0, 20) }));
-    }
-  } else {
-    window.localStorage.removeItem(STORAGE_KEY);
-  }
-  emitChange();
+  current = next;
+  for (const listener of listeners) listener();
 }
 
 export function useDataset() {
